@@ -1,7 +1,8 @@
 fieldset.cluster {
   font-weight: normal;
   margin-bottom: 30px;
-  background-color: #E8ECEC;
+  background-color: #EEF3F4;
+  border: 1px solid #000000;
 }
 
 fieldset.cluster a.cluster_top {
@@ -11,6 +12,11 @@ fieldset.cluster a.cluster_top {
 
 fieldset.cluster legend {
   font-weight: bold;
+  font-size: large;
+}
+
+fieldset.cluster h3,h4 {
+  border-bottom: 1px solid #333366;
 }
 
 table.biostat {
@@ -35,8 +41,8 @@ dl dd {
 
 ol#toc {
   margin-bottom: 30px;
-  background-color: #E8ECEC;
-  border: 1px solid #AAAAAA;
+  background-color: #EEF3F4;
+  border: 1px solid #000000;
   padding-top: 10px;
   padding-bottom: 10px;
 }
