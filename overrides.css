@@ -1,0 +1,42 @@
+fieldset.cluster {
+  font-weight: normal;
+  margin-bottom: 30px;
+  background-color: #E8ECEC;
+}
+
+fieldset.cluster a.cluster_top {
+  font-size: x-small;
+  
+}
+
+fieldset.cluster legend {
+  font-weight: bold;
+}
+
+table.biostat {
+  margin-top: 15px;
+}
+
+pre {
+  color: #000000;
+  line-height: 1.1em;
+  padding: 1em;
+  border: 1px dashed #2F6FAB;
+  background-color: #F9F9F9;
+}
+
+dl dt em {
+  font-weight: normal;
+}
+
+dl dd {
+  padding-bottom: 5px;
+}
+
+ol#toc {
+  margin-bottom: 30px;
+  background-color: #E8ECEC;
+  border: 1px solid #AAAAAA;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
