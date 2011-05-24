@@ -1,7 +1,6 @@
 fieldset.cluster {
   font-weight: normal;
   margin-bottom: 30px;
-  background-color: #EEF3F4;
   border: 1px solid #000000;
 }
 
@@ -17,10 +16,29 @@ fieldset.cluster legend {
 
 fieldset.cluster h3,h4 {
   border-bottom: 1px solid #333366;
+  margin-bottom: 0px;
 }
 
-table.biostat {
+td#content table {
   margin-top: 15px;
+  border: solid 1px #000000;
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 1px 1px 3px rgba(0,0,0,.3);
+}
+
+td#content table thead {
+  background-color: #cccccc;
+}
+
+td#content table tbody tr:nth-child(even) {
+  background-color: #eef3f4;
+}
+
+td#content table thead th, td#content table tbody td {
+  border: 1px solid #000000;
+  padding: 2px;
+  border-radius: 10px;
 }
 
 pre {
@@ -45,4 +63,5 @@ ol#toc {
   border: 1px solid #000000;
   padding-top: 10px;
   padding-bottom: 10px;
+  width: 30%;
 }

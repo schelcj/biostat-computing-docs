@@ -7,9 +7,9 @@
     <meta http-equiv="pragma" content="no-cache" />
 	<link rel="stylesheet" type="text/css" href="/css/sph.css" />
 	<link rel="stylesheet" type="text/css" href="/biostat/css/stylesheet.css" />
-	<link rel="stylesheet" type="text/css" href="overrides.css" />
 	<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
 	<link rel="stylesheet" type="text/css" href="/css/mobile.css" media="handheld" />
+	<link rel="stylesheet" type="text/css" href="/biostat/computing/overrides.css" />
 </head>
 <body>
 <!-- top blue banner //-->
@@ -141,8 +141,8 @@
 
       <a name="nodes"></a>
       <h3>Nodes</h3>
-      <table class="biostat">
-        <tbody>
+      <table>
+        <thead>
           <tr>
             <th>Node #</th>
             <th>Hostname</th>
@@ -155,6 +155,8 @@
             <th>Slurm Features</th>
             <th>Slurm Paritions</th>
           </tr>
+        </thead>
+        <tbody>
           <tr>
             <td>1-12</td>
             <td>cn0[01-12]</td>
@@ -261,8 +263,8 @@ $ module load openbugs</pre>
 
       <a name="software"></a>
       <h3>Software Modules</h3>
-      <table class="biostat">
-        <tbody>
+      <table>
+        <thead>
           <tr>
             <th>Module Name</th>
             <th>Version(s)</th>
@@ -270,6 +272,8 @@ $ module load openbugs</pre>
             <th>License Available</th>
             <th>Additional Information</th>
           </tr>
+        </thead>
+        <tbody>
           <tr>
             <td>SAS</td>
             <td>9.2</td>
@@ -444,14 +448,16 @@ $ cat slurm-25618.out
       <pre>$ squeue -u $USER</pre>
       <a href="#" class="cluster_top">[back to top]</a>
 
-      <h5>Job Status Codes</h5>
-      <table class="biostat">
-        <tbody>
+      <h4>Job Status Codes</h4>
+      <table>
+        <thead>
           <tr>
             <th>Code</th>
             <th>State</th>
             <th>Description</th>
           </tr>
+        </thead>
+        <tbody>
           <tr>
             <td>CA</td>
             <td>CANCELLED</td>
