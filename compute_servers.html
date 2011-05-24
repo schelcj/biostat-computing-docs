@@ -41,15 +41,28 @@
     <h1 id="dept_title">Department of Biostatistics <img src="/biostat/images/june08/blocks.gif" width="165" height="17" alt="" style="vertical-align:middle" /></h1>
     <h1>Computing Servers</h1>
 
-    <a name="servers"></a>
-    <h3>Description of Compute Servers</h3>
+    <p>This document describes the publicly available UNIX hosts that are available for use by anyone affialiated with Biostatistics and SPH.</p>
+
+    <p>If you need to run any compute-intensive<a href="#compute_intensive_def"><sup>*</sup></a> (high CPU or memory use) tasks such as statistical jobs or simulations, you may use any of the public machines designated as compute servers. These machines are:</P>
+
     <!--#include virtual="/biostat/computing/compute_servers/servers.html" -->
 
+    <p>For information on how to connect to these machines, see the <a href="http://www.sph.umich.edu/computing/unix/new_user.html">New UNIX User</a>.</p>
+
+    <p>All uses of SPH computing resources must comply with University guidelines for appropriate use as defined in the <a href="http://www.itcs.umich.edu/itpolicies/">University of Michigan Standard Practice Guide</a>.</p>
+
+    <p>Innappropriate processes run on any SPH UNIX machine may be terminated with or without warning.</p>
+
     <a name="software"></a>
-    <h3>Software Modules</h3>
-    <br />
+    <h3>Software</h3>
+    <p>Software packages are managed via the Environment Modules package.</p>
+    <!--#include virtual="/biostat/computing/modules.html" -->
+
+    <p>Available packages via the modules system are in the table below:</p>
     <!--#include virtual="/biostat/computing/compute_servers/modules.html" -->
 
+    <a name="compute_intensive_def"></a>
+    <p><em>* A Compute-intensive task is defined as any process that dominates CPU cycles (e.g. uses more than 10% CPU-utilization or pushes the machine load above 1.0) or memory usage on the machine. For example, any SAS, Splus or Matlab process is considered compute-intensive. All statistical programs and simulations are considered compute-intensive. An SPH user's fortran program is likely to be compute-intensive. Running Firefox or another graphical web browser is sometimes a compute-intensive task.</em></p>
     </td>
   </tr>
 </table>

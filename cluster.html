@@ -57,8 +57,6 @@
         <ol>
           <li><a href="#nodes">Cluster Nodes</a></li>
           <li><a href="#modules">Environment Modules</a></li>
-          <li><a href="#module_examples">Example Module Usage</a></li>
-          <li><a href="#module_subcommands">Environment Module Subcommands</a></li>
           <li><a href="#software">Software Modules</a></li>
         </ol>
       </li>
@@ -222,132 +220,12 @@
       <a href="#" class="cluster_top">[back to top]</a>
 
       <a name="modules"></a>
-      <h3>Environment Modules</h3>
-      <p>
-        The Environment Modules package provides for the dynamic
-        modification of a user's environment via modulefiles.
-      </p>
-      <p>
-        Each modulefile contains the information needed to configure the shell
-        for an application. Once the Modules package is initialized, the
-        environment can be modified on a per-module basis using the module command
-        which interprets modulefiles. Typically modulefiles instruct the module
-        command to alter or set shell environment variables such as PATH, MANPATH,
-        etc. modulefiles may be shared by many users on a system and users may have
-        their own collection to supplement or replace the shared modulefiles.
-      </p>
-
-      <a name="module_examples"></a>
-      <h4>Example Usage</h4>
-      <pre>$ module load R
-$ which R
-$ module unload R
-$ module load openbugs</pre>
-      <a href="#" class="cluster_top">[back to top]</a>
-
-      <a name="module_subcommands"></a>
-      <h4>Module Subcommands</h4>
-      <dl>
-        <dt>list</dt>
-        <dd>List currently loaded modules</dd>
-        <dt>avail</dt>
-        <dd>List all modules available in the system</dd>
-        <dt>show <em>modulename</em></dt>
-        <dd>Display details of the module</dd>
-        <dt>load <em>modulename</em></dt>
-        <dd>Load a module into your environment</dd>
-        <dt>unload <em>modulename</em></dt>
-        <dd>Remove a currently loaded module from your environment</dd>
-      </dl>
+      <!--#include virtual="/biostat/computing/modules.html" -->
       <a href="#" class="cluster_top">[back to top]</a>
 
       <a name="software"></a>
       <h3>Software Modules</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Module Name</th>
-            <th>Version(s)</th>
-            <th>Description</th>
-            <th>License Available</th>
-            <th>Additional Information</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>SAS</td>
-            <td>9.2</td>
-            <td>SAS Statistics package</td>
-            <td>8</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-          <td>R
-          </td><td>2.10.1
-          </td><td>R Statisics pacakge
-          </td><td>N/A
-          </td><td>Many CRAN libraries installed. If you find one is missing request it to be
-          <p>installed by emailing to <a rel="nofollow" title="mailto:sph-biostat-help@umich.edu" class="external text" href="mailto:sph-biostat-help@umich.edu">sph-biostat-help@umich.edu</a>.
-          </p>
-          </td></tr>
-          <tr>
-            <td>gcc/g++</td>
-            <td>4.4.3</td>
-            <td>GNU C Compiler</td>
-            <td>N/A</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>OpenMPI</td>
-            <td>1.4.1</td>
-            <td>High performance message passing library</td>
-            <td>N/A</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>Eigen</td>
-            <td>2.0.15</td>
-            <td>Eigen is a C++ template library for linear algebra: vectors, matrices, and related algorithms.</td>
-            <td>N/A</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>Boost++</td>
-            <td>1.45.0</td>
-            <td>Boost provides free peer-reviewed portable C++ source libraries.</td>
-            <td>N/A</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>Plink</td>
-            <td>1.07</td>
-            <td>PLINK is a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner.</td>
-            <td>N/A</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>MatLab</td>
-            <td>R2101bSP1</td>
-            <td>Matlab is interactive package for numerical analysis, matrix computation, control system design, and linear system analysis and design.</td>
-            <td>8</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>OpenBUGS</td>
-            <td>3.1.2</td>
-            <td>BUGS is a software package for performing Bayesian inference Using Gibbs Sampling.</td>
-            <td>N/A</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>PADB</td>
-            <td>3.3</td>
-            <td>Padb is a Job Inspection Tool for examining and debugging parallel programs, primarily it simplifies the process of gathering stack traces on compute clusters however it also supports a wide range of other functions. Padb supports a number of parallel environments and it works out-of-the-box on the majority of clusters. It's an open source, non-interactive, command line, script-able tool intended for use by programmers and system administrators alike.</td>
-            <td>N/A</td>
-            <td>&nbsp;</td>
-          </tr>
-        </tbody>
-      </table>
+      <!--#include virtual="/biostat/computing/cluster_modules.html" -->
       <a href="#" class="cluster_top">[back to top]</a>
     </fieldset>
 
