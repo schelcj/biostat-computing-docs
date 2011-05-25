@@ -38,7 +38,6 @@ td#content table tbody tr:nth-child(even) {
 td#content table thead th, td#content table tbody td {
   border: 1px solid #000000;
   padding: 2px;
-  border-radius: 10px;
 }
 
 pre {
