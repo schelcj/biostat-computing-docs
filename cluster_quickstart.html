@@ -65,7 +65,7 @@
 #SBATCH --job-name=my_first_job
 #SBATCH --time=1-00:00:00
 
-R CMD BATCH ./script.R</pre>
+srun R CMD BATCH ./script.R</pre>
 
     <h3>5. Submit job</h3>
     <p>Assuming you saved the above batch script to <em>job.txt</em> in your home directory you can submit the job with sbatch like this:</p>
