@@ -73,11 +73,13 @@
       <li>
         <a href="#slurm">SLURM Scheduler/Resource Manager</a>
         <ol>
-          <li><a href="#srun">srun</a></li>
           <li><a href="#sbatch">sbatch</a></li>
+          <li><a href="#sarray">sarray</a></li>
           <li><a href="#squeue">squeue</a></li>
           <li><a href="#scancel">scancel</a></li>
           <li><a href="#sinfo">sinfo</a></li>
+          <li><a href="#srun">srun</a></li>
+          <li><a href="#salloc">salloc</a></li>
         </ol>
       </li>
       <li>
@@ -274,30 +276,9 @@
       <legend>SLURM</legend>
       <p>We are using <a href="">SLURM (Simple Linux Utility for Resource Management)</a> for our resource manager and job scheduler. Below are several of the basic commands you will need to interact with the cluster.</p>
 
-      <a name="srun"></a>
-      <h4>srun</h4>
-      <p>Used to launch a jobs in the cluster</p>
-
-      <p>The following example runs the /bin/hostname command on at least two nodes in the cluster. STDOUT/STDERR return to your terminal.</p>
-
-      <pre> $ srun --nodes=2 hostname
-cn001
-cn002</pre>
-
-      <p>You can specify the number of cpu's to use per job with the <em>--cpus-per-task</em> option.</p>
-
-      <pre>$ srun --nodes=2 --cpus-per-task=3 R CMD BATCH script.R</pre>
-
-      <p>To request a license for software that has a limited number of licenses you will need to use the --license option to srun.</p>
-
-      <pre>$ srun --license=SAS some_sas_script.sas</pre>
-
-      <p>Provided there are available licenses the job will be launched according the the normal allocation process. If the license pool has been exhausted then the job will remain in the pending state until a license is freed for use.</p>
-      <a href="#" class="cluster_top">[back to top]</a>
-
       <a name="sbatch"></a>
       <h4>sbatch</h4>
-      <p>Submit a batch script to SLURM.</p>
+      <p>Submit a batch script to SLURM. This is the primary means of launching jobs in the cluster.</p>
       <p>sbatch submits a batch script to SLURM. The batch script may be given to sbatch through a file name on the command line, or if no file name is specified, sbatch will read in a script from standard input. The batch script may contain options preceded with "#SBATCH" before any executable commands in the script.</p>
       <p>sbatch exits immediately after the script is successfully transferred to the SLURM controller and assigned a SLURM job ID. The batch script is not necessarily granted resources immediately, it may sit in the queue of pending jobs for some time before its required resources become available.</p>
       <p>When the job allocation is finally granted for the batch script, SLURM runs a single copy of the batch script on the first node in the set of allocated nodes.</p>
@@ -317,6 +298,52 @@ Submitted batch job 25618
 
 $ cat slurm-25618.out
 # any output to STDOUT would be in this file</pre>
+      <a href="#" class="cluster_top">[back to top]</a>
+
+      <a name="sarray"></a>
+      <h4>sarray</h4>
+      <p>This script is an attempt at providing the array job concept from PBS in SLURM.  You can run multiple jobs from a single batch script with the only difference in each job being the array index. The array index gives the script a means of changing parameters, loading differing data files or anything that requires a unique index.</p>
+
+  <p>This script only accepts an batch script suitable for sbatch. The batch script must include the comment marker to indicate the range of array indexes. The comment is similiar to sbatch comments that must start in column zero of the script. The value can be a range separated by a dash ( -), a comma separated list of index numbers or both.</p>
+
+<pre>#SARRAY --range=1-20</pre>
+
+<pre>#SARRAY --range=1-10,12,14,16-20</pre>
+
+<p>This would create jobs with the id appended to the end of your defined job name with the id within brackets such as; jobname[1], jobname[2] ... jobname[20].</p>
+<p>The array index is passed back to the batch script as the environment variable $SLURM_ARRAYID for each iteration through the index(es) you provided via the --range option.</p>
+
+<h5>Usage</h5>
+<pre>$ sarray ./job.txt
+$ sarray -J ./job.txt</pre>
+<em><strong>-J</strong> Will maintain the jobname you specified and not attempt to append the array id</em>
+
+<h5>Examples</h5>
+<pre>$ cat array_job.txt
+#!/bin/sh
+
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=uniqname@umich.edu
+#SBATCH --time=1-0
+#SBATCH --job-name=array_job_test
+
+#SARRAY --range=1-10
+
+srun R CMD BATCH script-${SLURM_ARRAYID}.R
+
+$ sarray ./array_job.txt
+Submitted batch job 12345
+Submitted batch job 12346
+Submitted batch job 12347
+Submitted batch job 12348
+Submitted batch job 12349
+Submitted batch job 12350
+Submitted batch job 12351
+Submitted batch job 12352
+Submitted batch job 12353
+Submitted batch job 12354
+$
+</pre>
       <a href="#" class="cluster_top">[back to top]</a>
 
       <a name="squeue"></a>
@@ -420,6 +447,27 @@ biostat-*    up   infinite     10   idle andoria,cn[001-007],tellar,vulcan
 biostat-b    up   infinite      3   idle andoria,tellar,vulcan</pre>
 
       <p>This shows that nodes cn008 through cn012 have jobs allocated to them but they can still accpet more work. The rest of the cluster is currently idle. If you wanted to run and MPI job that used 40 cores then you could choose to use cn001 and cn002 since these nodes have 12 cores apiece.</p>
+      <a href="#" class="cluster_top">[back to top]</a>
+
+      <a name="srun"></a>
+      <h4>srun</h4>
+      <p>Used to launch a jobs in the cluster</p>
+
+      <p>The following example runs the /bin/hostname command on at least two nodes in the cluster. STDOUT/STDERR return to your terminal.</p>
+
+      <pre> $ srun --nodes=2 hostname
+cn001
+cn002</pre>
+
+      <p>You can specify the number of cpu's to use per job with the <em>--cpus-per-task</em> option.</p>
+
+      <pre>$ srun --nodes=2 --cpus-per-task=3 R CMD BATCH script.R</pre>
+
+      <p>To request a license for software that has a limited number of licenses you will need to use the --license option to srun.</p>
+
+      <pre>$ srun --license=SAS some_sas_script.sas</pre>
+
+      <p>Provided there are available licenses the job will be launched according the the normal allocation process. If the license pool has been exhausted then the job will remain in the pending state until a license is freed for use.</p>
       <a href="#" class="cluster_top">[back to top]</a>
 
       <a name="salloc"></a>
