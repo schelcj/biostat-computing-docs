@@ -87,6 +87,8 @@
         <ol>
           <li><a href="#example_r_snow_socket">R with snow<em>(fall)</em> <em>type="SOCK"</em></a></li>
           <li><a href="#example_r_snow_mpi">R with snow<em>(fall)</em> <em>type="MPI"</em></a></li>
+          <li><a href="#example_sas">SAS</a></li>
+          <li><a href="#example_matlab">MATLAB</a></li>
         </ol>
       </li>
       <li><a href="#resources">Resources</a></li>
@@ -556,6 +558,42 @@ srun R CMD BATCH ./script.R</pre>
 R CMD BATCH ./script.R</pre>
 
       <p>This batch script tells the scheduler that you would like to allocate 100 cpus(cores) to this single task, giving you 100 snow/snowfall nodes, that it will run for one day and requires 2GB of memory.</p>
+      <a href="#" class="cluster_top">[back to top]</a>
+
+      <a name="example_sas"></a>
+      <h4>SAS</h4>
+
+<pre>$ module load sas
+$ cat sas-job.txt
+#!/bin/sh
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=uniqname@umich.edu
+#SBATCH --license=SAS
+#SBATCH --time=1-0
+#SBATCH --job-name=test_sas_job
+#SBATCH --mem=2000
+
+sas file.sas</pre>
+
+      <p>First you must load the SAS module with the <em>module load sas</em> command. Then the batch script tells the scheduler that your job will use the default single core, request 2gb of memory, and request a single SAS license.</p>
+      <a href="#" class="cluster_top">[back to top]</a>
+
+      <a name="example_matlab"></a>
+      <h4>MATLAB</h4>
+
+<pre>$ module load matlab
+$ cat matlab-job.txt
+#!/bin/sh
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=uniqname@umich.edu
+#SBATCH --license=MATLAB
+#SBATCH --time=1-0
+#SBATCH --job-name=test_matlab_job
+#SBATCH --mem=4000
+
+matlab -nodisplay -nodesktop -r matlab_file</pre>
+
+      <p>First you must load the MATLAB module with the <em>module load matlab</em> command. Then the batch script tells teh scheduler that your job will use teh default single core, request 4gb of memory, and request a single MATLAB license.</p>
       <a href="#" class="cluster_top">[back to top]</a>
     </fieldset>
 
