@@ -1,3 +1,3 @@
-Redirect permanent cluster.html /biostat/computing/cluster/index.html
-Redirect permanent cluster_quickstart.html /biostat/computing/cluster/quickstart.html
-Redirect permanent compute_servers.html /biostat/computing/compute_servers/index.html
+RedirectPermanent /biostat/computing/cluster.html http://www.sph.umich.edu/biostat/computing/cluster/index.html
+RedirectPermanent /biostat/computing/cluster_quickstart.html http://www.sph.umich.edu/biostat/computing/cluster/quickstart.html
+RedirectPermanent /biostat/computing/compute_servers.html http://www.sph.umich.edu/biostat/computing/compute_servers/index.html
