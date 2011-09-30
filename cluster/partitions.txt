@@ -1,0 +1,6 @@
+| Name            | Nodes                            | Access Group  | Description                                         |
+|-----------------|----------------------------------|---------------|-----------------------------------------------------|
+| debug           | cn0[01-16],andoria,tellar,vulcan | wheel         | Administrator debugging/testing                     |
+| biostat-default | cn0[01-16],andoria,tellar,vulcan | biostat-users | Default partition for all users                     |
+| biostat-bigmem  | andoria, tellar, vulcan          | biostat-users | For jobs that require more then 30GB of memory      | 
+| contrib-mbb     | cn0[01-16],andoria,tellar,vulcan | mbb-user      | Preemptable partition for Mort Brown Research group |
