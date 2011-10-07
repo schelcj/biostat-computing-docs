@@ -1,16 +1,16 @@
 |Module|Version|Description|Licenses Available|Notes|
 |------|-------|-----------|------------------|-----|
-|biostat|1.0 |Biostatistics local repository|N/A|[Vendor Site](http://www.sph.umich.edu/biostat/)|
-|boost|1.45.0 |Boost provides free peer-reviewed portable C++ source libraries.|N/A|[Vendor Site](http://www.boost.org)|
-|eigen|2.0.15 |Eigen is a C++ template library for linear algebra|N/A|[Vendor Site](http://eigen.tuxfamily.org/)|
-|gurobi|4.5.1 4.5.2 |The Gurobi Optimizer is a state-of-the-art solver for linear programming (LP), quadratic programming (QP) and mixed-integer programming (MILP and MIQP). It was designed from the ground up to exploit modern multi-core processors.|N/A|[Vendor Site](http://www.gurobi.com/)|
-|jags|2.2.0 |JAGS is Just Another Gibbs Sampler.  It is a program for analysis of Bayesian hierarchical models using Markov Chain Monte Carlo (MCMC) simulation  not wholly unlike BUGS.|N/A|[Vendor Site]()|
-|matlab|2011b |Matlab is interactive package for numerical analysis, matrix computation, control system design, and linear system analysis and design|5|[Vendor Site](http://www.mathworks.com/)|
-|nctop|0.23.2 |nctop is a remote system monitor for unix hosts.|N/A|[Vendor Site](http://www.rz.uni-karlsruhe.de/~hj28/)|
-|openbugs|3.1.2 |BUGS is a software package for performing Bayesian inference Using Gibbs Sampling.|N/A|[Vendor Site](http://www.openbugs.info/w/)|
-|padb|3.3 |Padb is a Job Inspection Tool for examining and debugging parallel programs, primarily it simplifies the process of gathering stack traces on compute clusters however it also supports a wide range of other functions. Padb supports a number of parallel environments and it works out-of-the-box on the majority of clusters. It's an open source, non-interactive, command line, script-able tool intended for use by programmers and system administrators alike.|N/A|[Vendor Site](http://padb.pittman.org.uk/)|
-|plink|1.07 |PLINK is a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner.|N/A|[Vendor Site](http://pngu.mgh.harvard.edu/~purcell/plink/)|
-|python|2.7.1 |Python development and runtime environment.|N/A|[Vendor Site](http://www.python.org/)|
-|R|2.10.1 2.13.0 |R is a language and environment for statistical computing and graphics.|N/A|[Vendor Site](http://www.r-projects.org/)|
-|sas|9.2 |SAS Statistical Analysis package|8|[Vendor Site](http://www.sas.com/)|
-|slurm|2.2.7 |SLURM Resource Manager and Job Scheduler|N/A|[Vendor Site](https://computing.llnl.gov/linux/slurm/)|
+|biostat|1.0 |Biostatistics local repository|N/A|[Vendor](http://www.sph.umich.edu/biostat/)|
+|boost|1.45.0 |Boost provides free peer-reviewed portable C++ source libraries.|N/A|[Vendor](http://www.boost.org)|
+|eigen|2.0.15 |Eigen is a C++ template library for linear algebra|N/A|[Vendor](http://eigen.tuxfamily.org/)|
+|gurobi|4.5.1 4.5.2 |The Gurobi Optimizer is a state-of-the-art solver for linear programming (LP), quadratic programming (QP) and mixed-integer programming (MILP and MIQP). It was designed from the ground up to exploit modern multi-core processors.|N/A|[Vendor](http://www.gurobi.com/)|
+|jags|2.2.0 |JAGS is Just Another Gibbs Sampler.  It is a program for analysis of Bayesian hierarchical models using Markov Chain Monte Carlo (MCMC) simulation  not wholly unlike BUGS.|N/A|[Vendor]()|
+|matlab|2011b |Matlab is interactive package for numerical analysis, matrix computation, control system design, and linear system analysis and design|5|[Vendor](http://www.mathworks.com/)|
+|nctop|0.23.2 |nctop is a remote system monitor for unix hosts.|N/A|[Vendor](http://www.rz.uni-karlsruhe.de/~hj28/)|
+|openbugs|3.1.2 |BUGS is a software package for performing Bayesian inference Using Gibbs Sampling.|N/A|[Vendor](http://www.openbugs.info/w/)|
+|padb|3.3 |Padb is a Job Inspection Tool for examining and debugging parallel programs, primarily it simplifies the process of gathering stack traces on compute clusters however it also supports a wide range of other functions. Padb supports a number of parallel environments and it works out-of-the-box on the majority of clusters. It's an open source, non-interactive, command line, script-able tool intended for use by programmers and system administrators alike.|N/A|[Vendor](http://padb.pittman.org.uk/)|
+|plink|1.07 |PLINK is a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner.|N/A|[Vendor](http://pngu.mgh.harvard.edu/~purcell/plink/)|
+|python|2.7.1 |Python development and runtime environment.|N/A|[Vendor](http://www.python.org/)|
+|R|2.10.1 2.13.0 |R is a language and environment for statistical computing and graphics.|N/A|[Vendor](http://www.r-projects.org/)|
+|sas|9.2 |SAS Statistical Analysis package|8|[Vendor](http://www.sas.com/)|
+|slurm|2.2.7 |SLURM Resource Manager and Job Scheduler|N/A|[Vendor](https://computing.llnl.gov/linux/slurm/)|
