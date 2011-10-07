@@ -1,4 +1,4 @@
-|Module|Version|Description|Licenses Available|Notes|
+|Module|Version*(s)*|Description|Licenses Available|Notes|
 |------|-------|-----------|------------------|-----|
 |biostat|1.0 |Biostatistics local repository|N/A|[Vendor](http://www.sph.umich.edu/biostat/)|
 |boost|1.45.0 |Boost provides free peer-reviewed portable C++ source libraries.|N/A|[Vendor](http://www.boost.org)|
