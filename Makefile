@@ -24,7 +24,7 @@ $(SUBDIRS):
 #	find ./ -name '*.html' -exec rm {} \;
 #
 cluster_modules_desc:
-	ssh vulcan sh -l /usr/local/biostat/bin/get_module_desc.sh > cluster/modules.txt
+	ssh vulcan /usr/local/biostat/bin/get_module_desc.sh > cluster/modules.txt
 
 compute_modules_desc:
-	ssh jerido sh -l /usr/local/biostat/bin/get_module_desc.sh > compute_servers/modules.txt
+	ssh jerido /usr/local/biostat/bin/get_module_desc.sh > compute_servers/modules.txt
