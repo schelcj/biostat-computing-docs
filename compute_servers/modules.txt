@@ -1,0 +1,10 @@
+|Module|Versions|Description|Licenses Available|Notes|
+|------|--------|-----------|------------------|-----|
+|bedtools|2.11.2 |The BEDTools utilities allow one to address common genomics tasks such as finding feature overlaps and computing coverage.|N/A|[Vendor](http://code.google.com/p/bedtools/)|
+|biostat|1.0 |Biostatistics local repository|N/A|[Vendor](http://www.sph.umich.edu/biostat/)|
+|bowtie|0.12.7 |Bowtie is an ultrafast, memory-efficient short read aligner. It aligns short DNA sequences (reads) to the human genome at a rate of over 25 million 35-bp reads per hour. Bowtie indexes the genome with a Burrows-Wheeler index to keep its memory footprint small|N/A|[Vendor](http://bowtie-bio.sourceforge.net/index.shtml)|
+|bwa|0.5.9 |Burrows-Wheeler Aligner (BWA) is an efficient program that aligns relatively short nucleotide sequences against a long reference sequence such as the human genome.|N/A|[Vendor](http://bio-bwa.sourceforge.net/)|
+|macs|1.3.7.1 |Next generation parallel sequencing technologies made chromatin immunoprecipitation followed by sequencing (ChIP-Seq) a popular strategy to study genome-wide protein-DNA interactions, while creating challenges for analysis algorithms.|N/A|[Vendor](http://liulab.dfci.harvard.edu/MACS/)|
+|R|2.10.1 |R is a language and environment for statistical computing and graphics.|N/A|[Vendor](http://www.r-project.org/)|
+|samtools|0.1.13 |SAM (Sequence Alignment/Map) format is a generic format for storing large nucleotide sequence alignments.|N/A|[Vendor](http://samtools.sourceforge.net/)|
+|sas|9.2 |SAS Statistical Analysis package|8|[Vendor](http://www.sas.com/)|
