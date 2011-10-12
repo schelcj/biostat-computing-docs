@@ -1,18 +1,27 @@
-title:  Biostatistics Cluster Frequently Asked Questions
-css:  http://www.sph.umich.edu/biostat/computing/overrides.css
+title:              Biostatistics Cluster Frequently Asked Questions
+css:                /css/sph.css
+css:                /biostat/css/stylesheet.css
+css:                /biostat/computing/overrides.css
+xhtml header:       <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+xhtml header:       <link rel="stylesheet" type="text/css" href="/css/mobile.css" media="handheld" />
+base header level:  3
 
-* [How do I get an account?][]
-* [How do I have software installed?][]
-* [Why is my job pending?][]
-* [When will my job start?][]
+<!--#include virtual="/biostat/computing/header.shtml" -->
 
-### How do I get an account? ###
+1.  [How do I get an account?][]
+1.  [How do I have software installed?][]
+1.  [Why is my job pending?][]
+1.  [When will my job start?][]
+1.  [How do you transfer files to and from the cluster?][]
+1.  [How do you edit edit files/programs on the cluster?][]
+
+# How do I get an account? #
 Have your faculty advisor or PI email [sph-biostat-help@umich.edu][] to request an account allocation.
 
-### How do I have software installed? ###
+# How do I have software installed? #
 Send an email to [sph-biostat-help@umich.edu][] with what you would like installed.
 
-### Why is my job pending? ###
+# Why is my job pending? #
 There can be several different reasons for your job to be in the pending state.
 Some these reasons are but are not limited to:
 
@@ -22,9 +31,16 @@ Some these reasons are but are not limited to:
 * There is a reservation in place for maintenance and your job would potentially end during or after the reservation.
 * You or an administrator has placed a job on hold 
 
-### When will my job start? ###
+# When will my job start? #
 To view the estimated start time of your pending job(s) use the *squeue* command.
 
     squeue -u $USER --start
+
+# How do you transfer files to and from the cluster? #
+
+# How do you edit edit files/programs on the cluster? #
+
+<!--#include virtual="/biostat/computing/footer.shtml" -->
+
 
 [sph-biostat-help@umich.edu]: mailto:sph-biostat-help@umich.edu
