@@ -1,0 +1,30 @@
+title:  Biostatistics Cluster Frequently Asked Questions
+css:  http://www.sph.umich.edu/biostat/computing/overrides.css
+
+* [How do I get an account?][]
+* [How do I have software installed?][]
+* [Why is my job pending?][]
+* [When will my job start?][]
+
+### How do I get an account? ###
+Have your faculty advisor or PI email [sph-biostat-help@umich.edu][] to request an account allocation.
+
+### How do I have software installed? ###
+Send an email to [sph-biostat-help@umich.edu][] with what you would like installed.
+
+### Why is my job pending? ###
+There can be several different reasons for your job to be in the pending state.
+Some these reasons are but are not limited to:
+
+* The cluster is at full utilization and no resources are available to meet your requirements
+* You have requested more cores and or memory then are available to meet your requirements
+* All available licenses have to checked out
+* There is a reservation in place for maintenance and your job would potentially end during or after the reservation.
+* You or an administrator has placed a job on hold 
+
+### When will my job start? ###
+To view the estimated start time of your pending job(s) use the *squeue* command.
+
+    squeue -u $USER --start
+
+[sph-biostat-help@umich.edu]: mailto:sph-biostat-help@umich.edu
