@@ -1,4 +1,4 @@
-MARKDOWN=/home/schelcj/perl5/bin
+MARKDOWN=/home/schelcj/bin
 MAKEFILE ?= Makefile
 .SUFFIXES : .txt .html
 
@@ -6,7 +6,7 @@ TXTFILES=$(wildcard *.txt)
 HTMLFILES=$(TXTFILES:txt=html)
 
 %.html: %.txt
-	$(MARKDOWN)/MultiMarkdown.pl $*.txt > $*.html
+	$(MARKDOWN)/multimarkdown $*.txt > $*.html
 	chmod 755 $*.html
 
 # find and recurse into each subdirectory (but not current directory)
