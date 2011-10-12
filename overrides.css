@@ -68,7 +68,7 @@ dl dd {
   padding-bottom: 5px;
 }
 
-ol#toc {
+td#content > ol {
   margin-bottom: 30px;
   background-color: #EEF3F4;
   border: 1px solid #000000;
