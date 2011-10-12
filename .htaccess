@@ -3,7 +3,7 @@ RedirectPermanent /biostat/computing/cluster_quickstart.html http://www.sph.umic
 RedirectPermanent /biostat/computing/compute_servers.html http://www.sph.umich.edu/biostat/computing/compute_servers/index.html
 RedirectPermanent /biostat/computing/compute_resource_for_biostatistics.pdf http://www.sph.umich.edu/biostat/computing/docs/compute_resource_for_biostatistics.pdf
 
-<FilesMatch "Makefile|\.txt$">
+<FilesMatch "Makefile">
   Order allow,deny
   Deny from all
 </FilesMatch>
