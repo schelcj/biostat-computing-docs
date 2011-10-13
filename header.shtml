@@ -1,9 +1,12 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="/biostat/computing/js/breadcrumb.js"></script>
+
 <!-- top blue banner //-->
 <!--#include virtual="/inc/header.inc" -->
 <!--bread crumbs//-->
 <table cellspacing="0" cellpadding="0" width="100%">
   <tr> 
-    <td class="breadcrumb"><a href="/" class="breadcrumbs" title="UM SPH Home">UM SPH Home</a> &gt; <a href="/biostat/" title="Department of Biostatistics">Department of Biostatistics</a> &gt; Biostatistics Computing Resources</td>
+    <td class="breadcrumb"></td>
   </tr>
 </table>
 <!-- body area//-->
