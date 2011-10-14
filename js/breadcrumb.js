@@ -37,9 +37,9 @@ $(function() {
           class: 'breadcrumbs'
         }).appendTo('td.breadcrumb'); 
 
-        if (index != (crumbs.length - 1)) {
-          $('td.breadcrumb').append(' &gt; ');
-        }
+        $('td.breadcrumb').append(' &gt; ');
     });
+
+    $('td.breadcrumb').append($('<span />', { text: $('title').text() }));
   }
 });
