@@ -15,7 +15,7 @@ var breadcrumb_map = {
   },
 
   cluster : {
-    path: '/biostat/compute/cluster/',
+    path: '/biostat/computing/cluster/',
     title: 'Biostatistics Cluster Documentation',
   },
 
