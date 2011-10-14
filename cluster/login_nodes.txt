@@ -53,6 +53,7 @@ clients options depending on the platform of your client.
 * [WinSCP][] for Windows provides an Explorer like interface that support drag-n-drop
 * [Putty][] for windows is a suite of ssh related apps, most notably the terminal appilication.
   It also includes utilities for scp/sftp.
+* [CyberDuck] for MacOSX
 
 
 <!--#include virtual="/biostat/computing/footer.shtml" -->
@@ -64,3 +65,4 @@ clients options depending on the platform of your client.
 [Putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/
 [uniqname]: http://www.itd.umich.edu/uniqname/
 [kerberos]: http://www.itd.umich.edu/your-account/whatiskpass.php
+[CyberDuck]: http://cyberduck.ch/
