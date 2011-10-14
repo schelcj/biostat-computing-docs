@@ -52,6 +52,14 @@ here is the list of current nodes that make up the login pool.</p>
 
 <tbody>
 <tr>
+	<td style="text-align:left;">biostat-login.sph.umich.edu</td>
+	<td style="text-align:left;">Intel</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
 	<td style="text-align:left;">bajor.sph.umich.edu</td>
 	<td style="text-align:left;">Intel</td>
 </tr>
@@ -69,9 +77,22 @@ here is the list of current nodes that make up the login pool.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="authentication">Authentication</h2>
+
+<p>In order to login to the cluster you need a valid UMich <a href="http://www.itd.umich.edu/uniqname/">uniqname</a> with <a href="http://www.itd.umich.edu/your-account/whatiskpass.php">kerberos</a> password. This is the same
+account you use to access your email and or <a href="http://wolverineaccess.umich.edu/">wolverineaccess.umich.edu</a>.</p>
+
 <h2 id="transferingdata">Transfering Data</h2>
 
-<h2 id="authentication">Authentication</h2>
+<p>To transfer data, or code, to and from the cluster you must use <a href="http://en.wikipedia.org/wiki/Secure_copy">scp</a> or <a href="http://en.wikipedia.org/wiki/SSH_file_transfer_protocol">sftp</a>. There are several
+clients options depending on the platform of your client.</p>
+
+<ul>
+<li>scp/sftp are available by default on all linux distributions</li>
+<li><a href="http://winscp.net/eng/index.php">WinSCP</a> for Windows provides an Explorer like interface that support drag-n-drop</li>
+<li><a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">Putty</a> for windows is a suite of ssh related apps, most notably the terminal appilication.
+ It also includes utilities for scp/sftp.</li>
+</ul>
 
 <!--#include virtual="/biostat/computing/footer.shtml" -->
 </body>

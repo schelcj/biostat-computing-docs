@@ -30,15 +30,37 @@ Primary login node pool __biostat-login.sph.umich.edu__ will log you into one of
 nodes randomly. If you need to use the same node, for instance to use an existing screen session,
 here is the list of current nodes that make up the login pool.
 
-| Hostname              | Architecture |
-|-----------------------|--------------|
-| bajor.sph.umich.edu   | Intel        |
-| idran.sph.umich.edu   | Intel        |
-| vulcan.sph.umich.edu  | Intel        |
-| andoria.sph.umich.edu | Intel        |
-
-## Transfering Data ##
+| Hostname                    | Architecture |
+|-----------------------------|--------------|
+| biostat-login.sph.umich.edu | Intel        |
+|                             |              |
+| bajor.sph.umich.edu         | Intel        |
+| idran.sph.umich.edu         | Intel        |
+| vulcan.sph.umich.edu        | Intel        |
+| andoria.sph.umich.edu       | Intel        |
 
 ## Authentication ##
 
+In order to login to the cluster you need a valid UMich [uniqname][] with [kerberos][] password. This is the same
+account you use to access your email and or [wolverineaccess.umich.edu][].
+
+## Transfering Data ##
+
+To transfer data, or code, to and from the cluster you must use [scp][] or [sftp][]. There are several
+clients options depending on the platform of your client.
+
+* scp/sftp are available by default on all linux distributions
+* [WinSCP][] for Windows provides an Explorer like interface that support drag-n-drop
+* [Putty][] for windows is a suite of ssh related apps, most notably the terminal appilication.
+  It also includes utilities for scp/sftp.
+
+
 <!--#include virtual="/biostat/computing/footer.shtml" -->
+
+[wolverineaccess.umich.edu]: http://wolverineaccess.umich.edu/
+[scp]: http://en.wikipedia.org/wiki/Secure_copy
+[sftp]: http://en.wikipedia.org/wiki/SSH_file_transfer_protocol
+[WinSCP]: http://winscp.net/eng/index.php
+[Putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/
+[uniqname]: http://www.itd.umich.edu/uniqname/
+[kerberos]: http://www.itd.umich.edu/your-account/whatiskpass.php
