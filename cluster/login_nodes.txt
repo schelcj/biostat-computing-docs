@@ -22,7 +22,7 @@ Appropriate uses of the login nodes:
 * Creating, modifying, and compiling code and submission scripts
 * Submitting and monitoring the status of jobs
 * Testing executables to ensure they will run on the cluster's infrastructure
-  (limited to a maximum of 15 minutes of cpu-time). 
+  *(limited to a maximum of 5 minutes of cpu-time)*. 
 
 ## Nodes ##
 
