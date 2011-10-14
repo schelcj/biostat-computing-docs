@@ -1,0 +1,44 @@
+title:              Biostatistics Cluster Login Nodes
+css:                /css/sph.css
+css:                /biostat/css/stylesheet.css
+css:                /biostat/computing/overrides.css
+xhtml header:       <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+xhtml header:       <link rel="stylesheet" type="text/css" href="/css/mobile.css" media="handheld" />
+breadcrumb:         sph|biostat|computing|cluster
+
+<!--#include virtual="/biostat/computing/header.shtml" -->
+
+# Login Nodes #
+
+The login nodes are the front end to the cluster for all our users. They are accessible from
+on and off campus. They are a shared resource and, as such, it is expected that users do not
+monopolize them. 
+
+## Policies covering usage ##
+
+Appropriate uses of the login nodes:
+
+* Transferring files to and from the clusters
+* Creating, modifying, and compiling code and submission scripts
+* Submitting and monitoring the status of jobs
+* Testing executables to ensure they will run on the cluster's infrastructure
+  (limited to a maximum of 15 minutes of cpu-time). 
+
+## Nodes ##
+
+Primary login node pool __biostat-login.sph.umich.edu__ will log you into one of the login
+nodes randomly. If you need to use the same node, for instance to use an existing screen session,
+here is the list of current nodes that make up the login pool.
+
+| Hostname              | Architecture |
+|-----------------------|--------------|
+| bajor.sph.umich.edu   | Intel        |
+| idran.sph.umich.edu   | Intel        |
+| vulcan.sph.umich.edu  | Intel        |
+| andoria.sph.umich.edu | Intel        |
+
+## Transfering Data ##
+
+## Authentication ##
+
+<!--#include virtual="/biostat/computing/footer.shtml" -->
