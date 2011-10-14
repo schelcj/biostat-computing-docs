@@ -1,0 +1,44 @@
+title:              Biostatistics Cluster Accounts and Allocations
+css:                /css/sph.css
+css:                /biostat/css/stylesheet.css
+css:                /biostat/computing/overrides.css
+xhtml header:       <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+xhtml header:       <link rel="stylesheet" type="text/css" href="/css/mobile.css" media="handheld" />
+breadcrumb:         sph|biostat|computing|cluster
+
+<!--#include virtual="/biostat/computing/header.shtml" -->
+
+# Accounts and Allocations #
+
+### Accounts ###
+
+Cluster accounts are available to all biostat faculty, students and researchers.
+There is currently no cost associated with an account allocation but that may
+change in the future. Faculty may request an account directly by emailing
+[sph-biostat-help@umich.edu][]. Students will have to have their advisor
+request the account for them. Researchers have your your PI request your account.
+
+### Login Credentials ###
+
+Your login username will be your umich [uniqname][] and your password will be your
+UMICH [kerberos][] password.
+
+### Access Details ###
+
+All access to the cluster is over ssh within the Umich network via the [login nodes][]. 
+
+__HOSTNAME:__
+: *biostat-login.sph.umich.edu*
+
+__USERNAME:__
+: [uniqname][]
+
+__PASSWORD:__
+: Your Umich [kerberos][] password
+
+<!--#include virtual="/biostat/computing/footer.shtml" -->
+
+[sph-biostat-help@umich.edu]: mailto:sph-biostat-help@umich.edu
+[uniqname]: http://www.itd.umich.edu/uniqname/
+[kerberos]: http://www.itd.umich.edu/your-account/whatiskpass.php
+[login nodes]: /biostat/computing/cluster/login_nodes.html
