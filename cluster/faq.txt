@@ -38,10 +38,35 @@ To view the estimated start time of your pending job(s) use the *squeue* command
     squeue -u $USER --start
 
 # How do you transfer files to and from the cluster? #
+To transfer data, or code, to and from the cluster you must use [scp][] or [sftp][]. There are several
+clients options depending on the platform of your client.
+
+* scp/sftp are available by default on all linux distributions
+* [WinSCP][] for Windows provides an Explorer like interface that support drag-n-drop
+* [Putty][] for Windows is a suite of ssh related apps, most notably the terminal appilication.
+  It also includes utilities for scp/sftp.
+* [CyberDuck] for MacOSX
+* [SecureShell] for Windows is availble for ITS as part of the BlueDisc
 
 # How do you edit edit files/programs on the cluster? #
+Access to the clsuter is limited to ssh connections within a terminal which means
+you will need to be comfortable editing files outside of a GUI editor. There are several
+text editors available on the cluster. These include but aren't limited to
+
+* [nano][] probably the easiest for someone new to text editing in unix/linux. If
+  you have used Pico, Nano will be very familiar.
+* [Vim][] powerful editor that extends the Vi editor
 
 <!--#include virtual="/biostat/computing/footer.shtml" -->
 
 
 [sph-biostat-help@umich.edu]: mailto:sph-biostat-help@umich.edu
+
+[scp]: http://en.wikipedia.org/wiki/Secure_copy
+[sftp]: http://en.wikipedia.org/wiki/SSH_file_transfer_protocol
+[WinSCP]: http://winscp.net/eng/index.php
+[Putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/
+[CyberDuck]: http://cyberduck.ch/
+[SecureShell]: http://www.itd.umich.edu/itcsdocs/s4299/
+[nano]: http://www.nano-editor.org/
+[Vim]: http://www.vim.org/
