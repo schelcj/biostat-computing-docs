@@ -36,8 +36,6 @@ here is the list of current nodes that make up the login pool.
 |                             |              |
 | bajor.sph.umich.edu         | Intel        |
 | idran.sph.umich.edu         | Intel        |
-| vulcan.sph.umich.edu        | Intel        |
-| andoria.sph.umich.edu       | Intel        |
 
 ## Authentication ##
 
