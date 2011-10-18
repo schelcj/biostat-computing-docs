@@ -158,7 +158,7 @@
 
       <a name="sbatch"></a>
       <h4>sbatch</h4>
-      <p>Submit a batch script to SLURM. This is the primary means of launching jobs in the cluster.</p>
+      <p>Submit a batch script to SLURM. This is the preferred and primary means of launching jobs in the cluster.</p>
       <p>sbatch submits a batch script to SLURM. The batch script may be given to sbatch through a file name on the command line, or if no file name is specified, sbatch will read in a script from standard input. The batch script may contain options preceded with "#SBATCH" before any executable commands in the script.</p>
       <p>sbatch exits immediately after the script is successfully transferred to the SLURM controller and assigned a SLURM job ID. The batch script is not necessarily granted resources immediately, it may sit in the queue of pending jobs for some time before its required resources become available.</p>
       <p>When the job allocation is finally granted for the batch script, SLURM runs a single copy of the batch script on the first node in the set of allocated nodes.</p>
