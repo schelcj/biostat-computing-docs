@@ -156,6 +156,25 @@
       <legend>SLURM</legend>
       <p>We are using <a href="">SLURM (Simple Linux Utility for Resource Management)</a> for our resource manager and job scheduler. Below are several of the basic commands you will need to interact with the cluster.</p>
 
+      <p>The commands for launching jobs in the cluster are <a href="#sbatch">sbatch</a>, <a href="#srun">srun</a>,
+      <a href="#salloc">salloc</a>. The preferred and primary means of launching jobs in the cluster is with
+      <a href="#sbatch">sbatch</a>.</p>
+
+      <blockquote>
+        <p>
+          In a nutshell, sbatch and salloc allocate resources to the job, while srun launches parallel tasks across those resources.
+          When invoked within a job allocation, srun will launch parallel tasks across some or all of the allocated resources.
+          In that case, srun inherits by default the pertinent options of the sbatch or salloc which it runs under.  You can then
+          (usually) provide srun different options which will override what it receives by default.  Each invocation of srun within
+          a job is known as a job step. 
+        </p>
+        <p>
+          srun can also be invoked outside of a job allocation.  In that case, srun requests resources,
+          and when those resources are granted, launches tasks across those resources as a single job and job step. 
+        </p>
+      </blockquote>
+      <div>Source: <cite><a href="http://groups.google.com/group/slurm-devel/msg/b8c9a2f51ce334a1">slurm-devel mailing list post</a></cite></div>
+      
       <a name="sbatch"></a>
       <h4>sbatch</h4>
       <p>Submit a batch script to SLURM. This is the preferred and primary means of launching jobs in the cluster.</p>

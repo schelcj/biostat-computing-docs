@@ -80,3 +80,17 @@ td#content > ol {
 a.footnote {
   text-decoration: none;
 }
+
+blockquote {
+  font-weight: 200;
+  color: #666666;
+  border-left: 2px solid #666666;
+  padding-left: 15px;
+}
+
+blockquote + div {
+  font-weight: 100;
+  text-align: right;
+  color: #666666;
+  margin-right: 50px;
+}
