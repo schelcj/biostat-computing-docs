@@ -86,7 +86,6 @@
           <li><a href="#example_matlab">MATLAB</a></li>
         </ol>
       </li>
-      <li><a href="#resources">Resources</a></li>
     </ol>
 
     <a name="cluster_resources"></a>
@@ -255,67 +254,7 @@ $
       <a href="#" class="cluster_top">[back to top]</a>
 
       <h4>Job Status Codes</h4>
-      <table>
-        <thead>
-          <tr>
-            <th>Code</th>
-            <th>State</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>CA</td>
-            <td>CANCELLED</td>
-            <td>Job  was explicitly cancelled by the user or system administrator.  The job may or may  not  have  been initiated. </td>
-          </tr>
-          <tr>
-            <td>CD</td>
-            <td>COMPLETED</td>
-            <td>Job has terminated all processes on all nodes.</td>
-          </tr>
-          <tr>
-            <td>CF</td>
-            <td>CONFIGURING</td>
-            <td>Job  has  been allocated resources, but are waiting for them to become ready for use (e.g. booting).</td>
-          </tr>
-          <tr>
-            <td>CG</td>
-            <td>COMPLETING</td>
-            <td>Job is in the process of completing. Some processes on some nodes may still be active.</td>
-          </tr>
-          <tr>
-            <td>F</td>
-            <td>FAILED</td>
-            <td>Job  terminated  with  non-zero  exit code or other failure condition.</td>
-          </tr>
-          <tr>
-            <td>NF</td>
-            <td>NODE_FAIL</td>
-            <td>Job terminated due to failure of one or more  allo‐ cated nodes.</td>
-          </tr>
-          <tr>
-            <td>PD</td>
-            <td>PENDING</td>
-            <td>Job is awaiting resource allocation.</td>
-          </tr>
-          <tr>
-            <td>R</td>
-            <td>RUNNING</td>
-            <td>Job currently has an allocation.</td>
-          </tr>
-          <tr>
-            <td>S</td>
-            <td>SUSPENDED</td>
-            <td>Job  has an allocation, but execution has been suspended.</td>
-          </tr>
-          <tr>
-            <td>TO</td>
-            <td>TIMEOUT</td>
-            <td>Job terminated upon reaching its time limit.</td>
-          </tr>
-        </tbody>
-      </table>
+      <!--#include virtual="job_status_codes.html" -->
       <a href="#" class="cluster_top">[back to top]</a>
 
       <a name="scancel"></a>
@@ -493,46 +432,6 @@ matlab -nodisplay -nodesktop -r matlab_file</pre>
       <p>First you must load the MATLAB module with the <em>module load matlab</em> command. Then the batch script tells teh scheduler that your job will use teh default single core, request 4gb of memory, and request a single MATLAB license.</p>
       <a href="#" class="cluster_top">[back to top]</a>
     </fieldset>
-
-    <a name="resources"></a>
-    <fieldset class="cluster" id="resources">
-      <legend>Resources</legend>
-      <h3>Departmental Documentation</h3>
-      <ul>
-        <li><a href="/biostat/computing/docs/compute_resource_for_biostatistics.pdf">Cluster Intro Brown Bag Notes</a>
-        <li><a href="https://www.bio.sph.umich.edu/ganglia/">Cluster Status</a>
-      </ul>
-
-      <h3>Utils</h3>
-      <ul>
-        <li><a href="https://accounts.itcs.umich.edu/password/">UMICH ITS Password Reset Utility</a></li>
-      </ul>
-
-      <h3>Slurm Documentation</h3>
-      <ul>
-        <li><a href="https://computing.llnl.gov/linux/slurm/quickstart.html">Slurm Quickstart Guide</a></li>
-        <li><a href="https://computing.llnl.gov/linux/slurm/mpi_guide.html#open_mpi">Slurm OpenMPI Jobs</a></li>
-        <li><a href="https://computing.llnl.gov/linux/slurm/slurm.html">Slurm Project</a></li>
-      </ul>
-      
-      <h3>Slurm man pages</h3>
-      <ul>
-        <li><a href="http://manpages.ubuntu.com/manpages/lucid/man1/srun.1.html">srun</a></li>
-        <li><a href="http://manpages.ubuntu.com/manpages/lucid/man1/sbatch.1.html">sbatch</a></li>
-        <li><a href="http://manpages.ubuntu.com/manpages/lucid/man1/squeue.1.html">squeue</a></li>
-        <li><a href="http://manpages.ubuntu.com/manpages/lucid/man1/scancel.1.html">scancel</a></li>
-        <li><a href="http://manpages.ubuntu.com/manpages/lucid/man1/sinfo.1.html">sinfo</a></li>
-        <li><a href="http://manpages.ubuntu.com/manpages/lucid/man1/salloc.1.html">salloc</a></li>
-      </ul>
-
-      <h3>R</h3>
-      <ul>
-        <li><a href="http://www.sfu.ca/~sblay/R/snow.html">Snow</a></li>
-        <li><a href="http://docs.google.com/viewer?a=v&q=cache:ZcrRMWgNs18J:cran.r-project.org/web/packages/snowfall/vignettes/snowfall.pdf+R+snowfall&hl=en&gl=us&pid=bl&srcid=ADGEESiFpPILuTD4x7AVQECq4TAympKaRGRHo62-RqvxjYZirRdukjp7fyYd1R_q80vD3tEcHts29OyBREhqIXDtdX9Y7deCfF5OjXzY7Bw-PoIm1-pdJc1Xv70L6P7kSdXg2RHUspX4&sig=AHIEtbRf_e1D-6f9a4-Jg64gyo6XBmK0-Q">Snowfall</a></li>
-      </ul>
-      <a href="#" class="cluster_top">[back to top]</a>
-    </fieldset>
-
   </tr>
 </table>
 <!-- footer //-->

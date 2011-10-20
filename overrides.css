@@ -8,7 +8,8 @@ a:link {
 }
 
 h3 {
-  padding-bottom: 4px;
+  border-bottom: 1px solid #333366;
+  margin-bottom: 0px;
 }
 
 fieldset.cluster {
@@ -24,11 +25,6 @@ fieldset.cluster a.cluster_top {
 fieldset.cluster legend {
   font-weight: bold;
   font-size: large;
-}
-
-fieldset.cluster h3,h4 {
-  border-bottom: 1px solid #333366;
-  margin-bottom: 0px;
 }
 
 td#content table {
