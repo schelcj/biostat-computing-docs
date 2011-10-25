@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Bisotatistics Cluster Jobs</title>
+	<link type="text/css" rel="stylesheet" href="/css/sph.css"/>
+	<link type="text/css" rel="stylesheet" href="/biostat/css/stylesheet.css"/>
+	<link type="text/css" rel="stylesheet" href="/biostat/computing/overrides.css"/>
+<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="/css/mobile.css" media="handheld" />
+	<meta name="breadcrumb" content="sph|biostat|computing|cluster"/>
+</head>
+<body>
+<!--#include virtual="/biostat/computing/header.shtml" -->
+
+<h3 id="queueingpolicy">Queueing Policy</h3>
+
+<p>All jobs are scheduled on a <a href="http://en.wikipedia.org/wiki/FIFO">FIFO</a> with backfill. The backfill scheduler
+will initiate a lower-priority job if doing so does not delay the
+expected initiation time of higher priority jobs; essentially using smaller
+jobs to fill holes in the resource allocation plan.</p>
+
+<p>There are no max proc limitations so if there is an idle resource for your
+job it will be allocated to you.</p>
+
+<h3 id="limitations">Limitations</h3>
+
+<ul>
+<li>Maximum wallclock time of 28 days for all jobs.</li>
+<li>Maximum of 500 jobs in the queue regardless of state (ie; running, pending) per user.</li>
+<li>Unless requested each job defaults to one cpu core and 1.3GB of memory per job. You can request more with various options to salloc/srun/sbatch.</li>
+<li>Time argument <em>(&#8211;time=)</em> is required otherwise default time of 10 minutes is applied to your job.</li>
+</ul>
+
+<h3 id="partitions">Partitions</h3>
+
+<p>Partitions in <a href="https://computing.llnl.gov/linux/slurm/">SLURM</a> are groupings of computation nodes, similiar to queues in other schedulers, that are used
+for logical collections of resources. We have several partitions defined that are available for your jobs. Which
+partition you use depends on your job requirements or research group.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Name</th>
+	<th style="text-align:left;">Nodes</th>
+	<th style="text-align:left;">Access Group</th>
+	<th style="text-align:left;">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">debug</td>
+	<td style="text-align:left;">cn0[01&#8211;17],andoria,tellar,vulcan</td>
+	<td style="text-align:left;">wheel</td>
+	<td style="text-align:left;">Administrator debugging/testing</td>
+</tr>
+<tr>
+	<td style="text-align:left;">biostat-default</td>
+	<td style="text-align:left;">cn0[01&#8211;17],andoria,tellar,vulcan</td>
+	<td style="text-align:left;">biostat-users</td>
+	<td style="text-align:left;">Default partition for all users</td>
+</tr>
+<tr>
+	<td style="text-align:left;">biostat-bigmem</td>
+	<td style="text-align:left;">andoria, tellar, vulcan</td>
+	<td style="text-align:left;">biostat-users</td>
+	<td style="text-align:left;">For jobs that require more then 30GB of memory</td>
+</tr>
+<tr>
+	<td style="text-align:left;">biostat-sas</td>
+	<td style="text-align:left;">andoria, vulcan</td>
+	<td style="text-align:left;">biostat-users</td>
+	<td style="text-align:left;">All SAS jobs should run in this partition due to licensing restrictions</td>
+</tr>
+<tr>
+	<td style="text-align:left;">contrib-mbb</td>
+	<td style="text-align:left;">cn0[01&#8211;17],andoria,tellar,vulcan</td>
+	<td style="text-align:left;">mbb-users</td>
+	<td style="text-align:left;">Preemptable partition for Mort Brown Research group</td>
+</tr>
+<tr>
+	<td style="text-align:left;">contrib-jmgt</td>
+	<td style="text-align:left;">cn017</td>
+	<td style="text-align:left;">jmgt-users</td>
+	<td style="text-align:left;">Cluster contribution by Jermey Taylor</td>
+</tr>
+<tr>
+	<td style="text-align:left;">contrib-bnan</td>
+	<td style="text-align:left;">cn0[13&#8211;16]</td>
+	<td style="text-align:left;">bnan-users</td>
+	<td style="text-align:left;">Cluster contribution by Bin Nan</td>
+</tr>
+</tbody>
+</table>
+<!--#include virtual="/biostat/computing/footer.shtml" -->
+</body>
+</html>

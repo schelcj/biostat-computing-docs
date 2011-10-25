@@ -1,0 +1,45 @@
+title:              Bisotatistics Cluster Jobs
+css:                /css/sph.css
+css:                /biostat/css/stylesheet.css
+css:                /biostat/computing/overrides.css
+xhtml header:       <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+xhtml header:       <link rel="stylesheet" type="text/css" href="/css/mobile.css" media="handheld" />
+breadcrumb:         sph|biostat|computing|cluster
+base header level:  3
+
+<!--#include virtual="/biostat/computing/header.shtml" -->
+
+# Queueing Policy #
+All jobs are scheduled on a [FIFO][] with backfill. The backfill scheduler
+will initiate a lower-priority job if doing so does not delay the
+expected initiation time of higher priority jobs; essentially using smaller
+jobs to fill holes in the resource allocation plan.
+
+There are no max proc limitations so if there is an idle resource for your
+job it will be allocated to you.
+
+# Limitations #
+* Maximum wallclock time of 28 days for all jobs.
+* Maximum of 500 jobs in the queue regardless of state (ie; running, pending) per user.
+* Unless requested each job defaults to one cpu core and 1.3GB of memory per job. You can request more with various options to salloc/srun/sbatch.
+* Time argument *(--time=)* is required otherwise default time of 10 minutes is applied to your job.
+
+# Partitions #
+Partitions in [SLURM][] are groupings of computation nodes, similiar to queues in other schedulers, that are used
+for logical collections of resources. We have several partitions defined that are available for your jobs. Which
+partition you use depends on your job requirements or research group.
+
+| Name            | Nodes                            | Access Group  | Description                                                              |
+|-----------------|----------------------------------|---------------|--------------------------------------------------------------------------|
+| debug           | cn0[01-17],andoria,tellar,vulcan | wheel         | Administrator debugging/testing                                          |
+| biostat-default | cn0[01-17],andoria,tellar,vulcan | biostat-users | Default partition for all users                                          |
+| biostat-bigmem  | andoria, tellar, vulcan          | biostat-users | For jobs that require more then 30GB of memory                           | 
+| biostat-sas     | andoria, vulcan                  | biostat-users | All SAS jobs should run in this partition due to licensing restrictions  | 
+| contrib-mbb     | cn0[01-17],andoria,tellar,vulcan | mbb-users     | Preemptable partition for Mort Brown Research group                      |
+| contrib-jmgt    | cn017                            | jmgt-users    | Cluster contribution by Jermey Taylor                                    |
+| contrib-bnan    | cn0[13-16]                       | bnan-users    | Cluster contribution by Bin Nan                                          |
+
+<!--#include virtual="/biostat/computing/footer.shtml" -->
+
+[FIFO]: http://en.wikipedia.org/wiki/FIFO
+[SLURM]: https://computing.llnl.gov/linux/slurm/
