@@ -1,6 +1,20 @@
+title:              Biostatistics Cluster Hardware/Software Resources
+css:                /css/sph.css
+css:                /biostat/css/stylesheet.css
+css:                /biostat/computing/overrides.css
+xhtml header:       <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+xhtml header:       <link rel="stylesheet" type="text/css" href="/css/mobile.css" media="handheld" />
+breadcrumb:         sph|biostat|computing|cluster
+
+<!--#include virtual="/biostat/computing/header.shtml" -->
+
+# Nodes #
+
 | Hostname   | Processor        | Processor Clock Speed | Physical Cores | Logical Cores | Memory | Diskpace | Slurm Features    |
 |------------|------------------|-----------------------|----------------|---------------|--------|----------|-------------------|
 | cn0[01-17] | Intel Xeon X5660 | 2.80GHz               | 12             | 24            | 32GB   | 85GB     | rack-15W-E, intel |
 | tellar     | AMD Opteron 6174 | 3.0GHz                | 48             | 48            | 128GB  | 256GB    | rack-15W-E, amd   |
 | andoria    | Intel Xeon X5680 | 3.33GHz               | 12             | 24            | 144GB  | 500GB    | rack-15W-E, intel |
 | vulcan     | Intel Xeon X5680 | 3.33GHz               | 12             | 24            | 144GB  | 500GB    | rack-15W-E, intel |
+
+<!--#include virtual="/biostat/computing/footer.shtml" -->
