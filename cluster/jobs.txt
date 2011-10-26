@@ -5,11 +5,12 @@ css:                /biostat/computing/overrides.css
 xhtml header:       <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
 xhtml header:       <link rel="stylesheet" type="text/css" href="/css/mobile.css" media="handheld" />
 breadcrumb:         sph|biostat|computing|cluster
-base header level:  3
 
 <!--#include virtual="/biostat/computing/header.shtml" -->
 
-# Queueing Policy #
+# Jobs #
+
+### Queueing Policy ###
 All jobs are scheduled on a [FIFO][] with backfill. The backfill scheduler
 will initiate a lower-priority job if doing so does not delay the
 expected initiation time of higher priority jobs; essentially using smaller
@@ -18,13 +19,13 @@ jobs to fill holes in the resource allocation plan.
 There are no max proc limitations so if there is an idle resource for your
 job it will be allocated to you.
 
-# Limitations #
+### Limitations ###
 * Maximum wallclock time of 28 days for all jobs.
 * Maximum of 500 jobs in the queue regardless of state (ie; running, pending) per user.
 * Unless requested each job defaults to one cpu core and 1.3GB of memory per job. You can request more with various options to salloc/srun/sbatch.
 * Time argument *(--time=)* is required otherwise default time of 10 minutes is applied to your job.
 
-# Partitions #
+### Partitions ###
 Partitions in [SLURM][] are groupings of computation nodes, similiar to queues in other schedulers, that are used
 for logical collections of resources. We have several partitions defined that are available for your jobs. Which
 partition you use depends on your job requirements or research group.

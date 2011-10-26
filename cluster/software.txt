@@ -5,11 +5,12 @@ css:                /biostat/computing/overrides.css
 xhtml header:       <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
 xhtml header:       <link rel="stylesheet" type="text/css" href="/css/mobile.css" media="handheld" />
 breadcrumb:         sph|biostat|computing|cluster
-base header level:  3
 
 <!--#include virtual="/biostat/computing/header.shtml" -->
 
-# [Environment Modules][] #
+# Software #
+
+### [Environment Modules][] ###
 The Environment Modules package provides for the dynamic modification of a user's environment via modulefiles.
 
 Each modulefile contains the information needed to configure the shell
@@ -20,14 +21,14 @@ command to alter or set shell environment variables such as PATH, MANPATH,
 etc. modulefiles may be shared by many users on a system and users may have
 their own collection to supplement or replace the shared modulefiles.
 
-# [Example Usage][] #
+### [Example Usage][] ###
 
     $ module load R
     $ which R
     $ module unload R
     $ module load openbugs
 
-# [Module Subcommands][] #
+### [Module Subcommands][] ###
 
 | Command    | Description                                            | example           |
 |------------|--------------------------------------------------------|-------------------|
@@ -39,7 +40,7 @@ their own collection to supplement or replace the shared modulefiles.
 | __whatis__ | Display the module description information             | *module whatis R* |
 
 
-# [Available Modules][] #
+### [Available Modules][] ###
 The following list of software is available on the cluster.
 
 If there is software missing that you need please email [sph-biostat-help@umich.edu][] to
