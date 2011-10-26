@@ -1,11 +1,237 @@
-title:              
+title:              Biostatistics Cluster SLURM Scheduler/Resource Manager
 css:                /css/sph.css
 css:                /biostat/css/stylesheet.css
 css:                /biostat/computing/overrides.css
 xhtml header:       <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
 xhtml header:       <link rel="stylesheet" type="text/css" href="/css/mobile.css" media="handheld" />
-breadcrumb:         sph|biostat|computing
+breadcrumb:         sph|biostat|computing|cluster
 
 <!--#include virtual="/biostat/computing/header.shtml" -->
 
+# SLURM #
+We are using [SLURM (Simple Linux Utility for Resource Management)][] for our resource manager
+and job scheduler. Below are several of the basic commands you will need to interact with the cluster.
+
+The commands for launching jobs in the cluster are [sbatch][], [srun][] and [salloc][]. The preferred
+and primary means of launching jobs in the cluster is with [sbatch][].
+
+> In a nutshell, sbatch and salloc allocate resources to the job, while srun launches parallel tasks across those resources.
+> When invoked within a job allocation, srun will launch parallel tasks across some or all of the allocated resources.
+> In that case, srun inherits by default the pertinent options of the sbatch or salloc which it runs under.  You can then
+> (usually) provide srun different options which will override what it receives by default.  Each invocation of srun within
+> a job is known as a job step. 
+>
+> srun can also be invoked outside of a job allocation.  In that case, srun requests resources,
+> and when those resources are granted, launches tasks across those resources as a single job and job step. 
+
+*Source: [slurm-devel mailing list post][]*
+
+## Commands ##
+1. [sbatch][]
+1. [sarray][]
+1. [squeue][]
+1. [scancel][]
+1. [srun][]
+1. [salloc][]
+
+### [sbatch][] ###
+sbatch submits a batch script to SLURM. The batch script may be givento sbatch through a file name
+on the command line, or if no file name is specified, sbatch will read in a script from standard
+input. The batch script may contain options preceded with __#SBATCH__ before any executable commands
+in the script.
+
+sbatch exits immediately after the script is successfully transferred to the SLURM controller
+and assigned a SLURM job ID. The batch script is not necessarily granted resources immediately,
+it may sit in the queue of pending jobs for some time before its required resources become available.
+
+When the job allocation is finally granted for the batch script, SLURM runs a single copy of
+the batch script on the first node in the set of allocated nodes.
+
+    $ cat sample.txt 
+    #!/bin/sh
+
+    #SBATCH --mail-type=ALL
+    #SBATCH --mail-user=@umich.edu
+    #SBATCH --ntasks=5
+    #SBATCH --job-name=test
+
+    R CMD BATCH script.R
+
+    $ sbatch ./sample.txt
+    Submitted batch job 25618
+
+    $ cat slurm-25618.out
+    # any output to STDOUT would be in this file
+
+
+### [sarray][] ###
+This script allows you to run multiple jobs from a single batch script with the only difference
+in each job being the array index. The array index gives the script a means of changing parameters,
+loading differing data files or anything that requires a unique index.
+
+This script only accepts an batch script suitable for sbatch. The batch script must include the comment
+marker to indicate the range of array indexes. The comment is similiar to sbatch comments that must start
+in column zero of the script. The value can be a range separated by a dash *( -)*, a comma separated list
+of index numbers or both.
+
+    #SARRAY --range=1-20
+    
+    #SARRAY --range=1-10,12,14,16-20
+
+This would create jobs with the id appended to the end of your defined job name with the id within
+brackets such as; *jobname[1], jobname[2] ... jobname[20]*.
+
+The array index is passed back to the batch script as the environment variable __$SLURM_ARRAYID__ for
+each iteration through the index(es) you provided via the *--range* option.
+
+#### Usage ####
+
+    $ sarray ./job.txt
+    $ sarray -J ./job.txt
+
+*__-J__ Will maintain the jobname you specified and not attempt to append the array id*
+
+#### Examples ####
+
+    $ cat array_job.txt
+    #!/bin/sh
+
+    #SBATCH --mail-type=ALL
+    #SBATCH --mail-user=uniqname@umich.edu
+    #SBATCH --time=1-0
+    #SBATCH --job-name=array_job_test
+
+    #SARRAY --range=1-10
+
+    srun R CMD BATCH script-${SLURM_ARRAYID}.R
+
+    $ sarray ./array_job.txt
+    Submitted batch job 12345
+    Submitted batch job 12346
+    Submitted batch job 12347
+    Submitted batch job 12348
+    Submitted batch job 12349
+    Submitted batch job 12350
+    Submitted batch job 12351
+    Submitted batch job 12352
+    Submitted batch job 12353
+    Submitted batch job 12354
+    $
+
+### [squeue][] ###
+This command is used to view information about the slurm scheduling queue.
+
+To view you jobs in the queue regardless of their current state.
+
+    $ squeue -u $USER
+
+#### Job Status Codes ####
+Typically your job will be either in the Running state of PenDing state.
+However here is a breakdown of all the states that your job could be in.
+
+| Code | State       | Description                                                                                                   |
+|------|-------------|---------------------------------------------------------------------------------------------------------------|
+| CA   | CANCELLED   | Job was explicitly cancelled by the user or system administrator. The job may or may not have been initiated. |
+| CD   | COMPLETED   | Job has terminated all processes on all nodes.                                                                |
+| CF   | CONFIGURING | Job has been allocated resources, but are waiting for them to become ready for use (e.g. booting).            |
+| CG   | COMPLETING  | Job is in the process of completing. Some processes on some nodes may still be active.                        |
+| F    | FAILED      | Job terminated with non-zero exit code or other failure condition.                                            |
+| NF   | NODE_FAIL   | Job terminated due to failure of one or more allocated nodes.                                                 |
+| PD   | PENDING     | Job is awaiting resource allocation.                                                                          |
+| R    | RUNNING     | Job currently has an allocation.                                                                              |
+| S    | SUSPENDED   | Job has an allocation, but execution has been suspended.                                                      |
+| TO   | TIMEOUT     | Job terminated upon reaching its time limit.                                                                  |
+
+### [scancel][] ###
+Used to signal jobs or job steps that are under the control of Slurm.
+
+scancel is used to signal or cancel jobs or job steps. An arbitrary number
+of jobs or job steps may be signaled using job specification filters or a
+space separated list of specific job and/or job step IDs. A job or job step
+can only be signaled by the owner of that job or user root. If an attempt is
+made by an unauthorized user to signal a job or job step, an error message
+will be printed and the job will not be signaled.
+
+    $ squeue 
+    JOBID PARTITION     NAME     USER  ST       TIME  NODES NODELIST(REASON)
+    29908 biostat-d     bash  schelcj   R       0:05      2 cn[001-002]
+    $ scancel 29908
+    $ squeue
+    JOBID PARTITION     NAME     USER  ST       TIME  NODES NODELIST(REASON)
+    $
+
+Here we see our jobid is 29908 then we cancel that job with the scancel command.
+
+### [srun][] ###
+Used to launch a jobs in the cluster
+
+The following example runs the /bin/hostname command on at least
+two nodes in the cluster. STDOUT/STDERR return to your terminal.
+
+    $ srun --nodes=2 hostname
+    cn001
+    cn002
+
+You can specify the number of cpu's to use per job with the *--cpus-per-task* option.
+
+    $ srun --nodes=2 --cpus-per-task=3 R CMD BATCH script.R
+
+All SAS jobs should be run in the biostat-sas partition to meet license restrictions.
+
+    $ srun --partition=biostat-sas some_sas_script.sas
+
+Provided there are available licenses the job will be launched according the the normal
+allocation process. If the license pool has been exhausted then the job will remain in
+the pending state until a license is freed for use.
+
+### [salloc][] ###
+Obtain an interactive SLURM job allocation (a set of nodes), execute a
+command, and then release the allocation when the command is finished.
+
+This just requests an allocation of cluster resources and gives you an
+interactive shell (when you exit that shell the allocation is relinquished
+and all jobs running are cancelled.) For example
+
+    $ salloc -N2
+    salloc: Granted job allocation 29903
+    $ srun hostname
+    cn002
+    cn001
+    $
+
+Here we have requested two nodes be allocated then we run /bin/hostname to
+see what nodes we were allocated. Any command we run within this allocation
+is run in parallel across the number of nodes we requested, in this case 2.
+So for instance if you had an R script that generated its own unique dataset for
+each invocation you could have ran that script across two nodes. For example;
+
+    $ salloc -N2
+    salloc: Grant job allocation 12345
+    $ srun R CMD BATCH script.R &
+    $ srun R CMD BATCH script.R &
+    $ srun R CMD BATCH script.R &
+    $
+
+In this example you have a two node allocation with each call to srun using a
+single core on both machines. Each call to srun launches the same R script on
+each node and the & sign backgrounds the process so that you can issue more srun
+commands. This example is now running the R script 6 times across two nodes.
+
+    $ env|grep SLURM
+    SLURM_NODELIST=cn[001-002]
+    SLURM_NNODES=2
+    SLURM_JOBID=29903
+    SLURM_TASKS_PER_NODE=2(x2)
+    SLURM_JOB_ID=29903
+    SLURM_JOB_NODELIST=cn[001-002]
+    SLURM_JOB_CPUS_PER_NODE=2(x2)
+    SLURM_JOB_NUM_NODES=2
+
+While within the interactive allocation you have several environmental varilables
+available to you that describe the allocation. Having things like the JOB_ID available
+make it possible to use the *--dependency* option to srun.
+
 <!--#include virtual="/biostat/computing/footer.shtml" -->
+
+[SLURM (Simple Linux Utility for Resource Management)]: https://computing.llnl.gov/linux/slurm/
+[slurm-devel mailing list post]: http://groups.google.com/group/slurm-devel/msg/b8c9a2f51ce334a1
