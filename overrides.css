@@ -27,6 +27,10 @@ fieldset.cluster legend {
   font-size: large;
 }
 
+td#content {
+  padding-bottom: 10px;
+}
+
 td#content table {
   margin-top: 15px;
   border: solid 1px #000000;
