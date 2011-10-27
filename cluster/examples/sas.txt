@@ -1,0 +1,30 @@
+title:              Biostatistics Cluster Examples - SAS
+css:                /css/sph.css
+css:                /biostat/css/stylesheet.css
+css:                /biostat/computing/overrides.css
+xhtml header:       <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+xhtml header:       <link rel="stylesheet" type="text/css" href="/css/mobile.css" media="handheld" />
+breadcrumb:         sph|biostat|computing|cluster|examples
+alt_formats:        txt
+
+<!--#include virtual="/biostat/computing/header.shtml" -->
+
+# SAS #
+
+First you must load the SAS module with the module load sas command. Then the batch script tells the
+scheduler that your job will use the default single core, request 2gb of memory, and request that
+the job be run in the biostat-sas partition.
+
+    $ module load sas
+    $ cat sas-job.txt
+    #!/bin/sh
+    #SBATCH --mail-type=ALL
+    #SBATCH --mail-user=uniqname@umich.edu
+    #SBATCH --partition=biostat-sas
+    #SBATCH --time=1-0
+    #SBATCH --job-name=test_sas_job
+    #SBATCH --mem=2000
+    
+    sas file.sas
+
+<!--#include virtual="/biostat/computing/footer.shtml" -->

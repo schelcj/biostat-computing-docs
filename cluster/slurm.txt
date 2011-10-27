@@ -5,6 +5,7 @@ css:                /biostat/computing/overrides.css
 xhtml header:       <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
 xhtml header:       <link rel="stylesheet" type="text/css" href="/css/mobile.css" media="handheld" />
 breadcrumb:         sph|biostat|computing|cluster
+alt_formats:        txt
 
 <!--#include virtual="/biostat/computing/header.shtml" -->
 

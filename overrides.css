@@ -27,6 +27,22 @@ fieldset.cluster legend {
   font-size: large;
 }
 
+div#nav {
+  font-size: medium;
+}
+
+div#nav li.menu_item {
+}
+
+div#nav li {
+  list-style: none;
+  margin: 5px 0px 0px 0px;
+}
+
+div#nav li:hover {
+  background: #cecece;
+}
+
 td#content {
   padding-bottom: 10px;
 }
@@ -95,3 +111,11 @@ blockquote + p {
   color: #666666;
   margin-right: 50px;
 }
+
+div#formats {
+  text-align: right;
+  font-size: x-small;
+  opacity: 0.4;
+}
+
+

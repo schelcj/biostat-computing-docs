@@ -1,5 +1,6 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 <script type="text/javascript" src="/biostat/computing/js/breadcrumb.js"></script>
+<script type="text/javascript" src="/biostat/computing/js/formats.js"></script>
 
 <!-- top blue banner //-->
 <!--#include virtual="/inc/header.inc" -->
@@ -28,3 +29,4 @@
   <td id="content"><a name="content"></a>
   <!-- body content //-->
     <h1 id="dept_title">Department of Biostatistics <img src="/biostat/images/june08/blocks.gif" width="165" height="17" alt="" style="vertical-align:middle" /></h1>
+    <div id="formats"></div>

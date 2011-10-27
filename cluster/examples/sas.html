@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Biostatistics Cluster Examples - SAS</title>
+	<link type="text/css" rel="stylesheet" href="/css/sph.css"/>
+	<link type="text/css" rel="stylesheet" href="/biostat/css/stylesheet.css"/>
+	<link type="text/css" rel="stylesheet" href="/biostat/computing/overrides.css"/>
+<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="/css/mobile.css" media="handheld" />
+	<meta name="breadcrumb" content="sph|biostat|computing|cluster|examples"/>
+	<meta name="alt_formats" content="txt"/>
+</head>
+<body>
+<!--#include virtual="/biostat/computing/header.shtml" -->
+
+<h1 id="sas">SAS</h1>
+
+<p>First you must load the SAS module with the module load sas command. Then the batch script tells the
+scheduler that your job will use the default single core, request 2gb of memory, and request that
+the job be run in the biostat-sas partition.</p>
+
+<pre><code>$ module load sas
+$ cat sas-job.txt
+#!/bin/sh
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=uniqname@umich.edu
+#SBATCH --partition=biostat-sas
+#SBATCH --time=1-0
+#SBATCH --job-name=test_sas_job
+#SBATCH --mem=2000
+
+sas file.sas
+</code></pre>
+
+<!--#include virtual="/biostat/computing/footer.shtml" -->
+</body>
+</html>

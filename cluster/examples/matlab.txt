@@ -1,0 +1,32 @@
+title:              Biostatistics Cluster Examples - MATLAB              
+css:                /css/sph.css
+css:                /biostat/css/stylesheet.css
+css:                /biostat/computing/overrides.css
+xhtml header:       <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+xhtml header:       <link rel="stylesheet" type="text/css" href="/css/mobile.css" media="handheld" />
+breadcrumb:         sph|biostat|computing|cluster|examples
+alt_formats:        txt
+
+<!--#include virtual="/biostat/computing/header.shtml" -->
+
+# MATLAB #
+
+First you must load the MATLAB [module][] with the module load matlab command.
+Then the batch script tells the scheduler that your job will use the default
+single core, request 4gb of memory, and request a single MATLAB license.
+
+    $ module load matlab
+    $ cat matlab-job.txt
+    #!/bin/sh
+    #SBATCH --mail-type=ALL
+    #SBATCH --mail-user=uniqname@umich.edu
+    #SBATCH --license=MATLAB
+    #SBATCH --time=1-0
+    #SBATCH --job-name=test_matlab_job
+    #SBATCH --mem=4000
+    
+    matlab -nodisplay -nodesktop -r matlab_file
+
+<!--#include virtual="/biostat/computing/footer.shtml" -->
+
+[module]: /biostat/computing/cluster/software.html

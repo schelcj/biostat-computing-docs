@@ -22,6 +22,11 @@ var breadcrumb_map = {
   compute_servers : {
     path: '/biostat/computing/compute_servers',
     title: 'Compute Servers',
+  },
+
+  examples : {
+    path: '/biostat/computing/cluster/examples',
+    title: 'Biostatistics Cluster Examples',
   }
 };
 

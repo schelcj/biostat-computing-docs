@@ -1,0 +1,89 @@
+title:              Biostatistics Cluster Examples - R
+css:                /css/sph.css
+css:                /biostat/css/stylesheet.css
+css:                /biostat/computing/overrides.css
+xhtml header:       <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+xhtml header:       <link rel="stylesheet" type="text/css" href="/css/mobile.css" media="handheld" />
+breadcrumb:         sph|biostat|computing|cluster|examples
+alt_formats:        txt
+
+<!--#include virtual="/biostat/computing/header.shtml" -->
+
+# R #
+
+## R with snow(fall) ##
+
+The snow and snowfall packages can be used in R to simplify the process of
+writing parallel R scripts. These packages work by creating separate R processes
+(slaves/nodes) and then sending jobs to those nodes in parellel. You have a
+couple different options for communication between these nodes. The options are
+communicationare [SOCKETS][], [MPI][], and [PVM][]. The biostatistics cluster does not implement
+[PVM][] leaving you with a choice between [MPI][] and [SOCKETS][]. The basic difference between
+the two is that [SOCKETS][] only allow communication within a single host and MPI
+communicates across the network. When you submit a R job to the cluster using
+snow/snowfall you should consider how many R cluster nodes you wish to start as
+this will help you decide which type you need to use. You can think of the snow/snowfall
+nodes as __1:1__ with cores and nodes, each node you start will use a single core.
+If you need to start more slaves then a single cluster node has cores then you
+will need to use MPI so those R slaves can communicate across the network.
+
+Here are some examples of sbatch batch file for each type:
+
+### Snow/Snowfall node type SOCK ###
+
+This is a sample of initializing your cluster in snow and snowfall.
+
+snow cluster init sample
+
+    cl <- makeCluster(12, type="SOCK")
+
+snowfall cluster init sample
+
+    cl <- sfInit(parallel=T,cpus=12,type="SOCK")
+
+This batch script tells the scheduler that you would like this job to
+allocate 12 cpus(cores) per task, so 12 cores for 12 snow/snowfall nodes,
+that it will run for one day and requires 2GB of memory.
+
+    $ cat sock-job.txt
+    #!/bin/sh
+    #SBATCH --mail-type=ALL
+    #SBATCH --mail-user=uniqname@umich.edu
+    #SBATCH --cpus-per-task=12
+    #SBATCH --time=1-0
+    #SBATCH --job-name=test_r_socket_job
+    #SBATCH --mem=2000
+    
+    srun R CMD BATCH ./script.R
+
+### Snow/Snowfall node type MPI ###
+
+This is a sample of initializing your cluster in snow and snowfall.
+snow cluster init sample
+
+    makeCluster(100, type="MPI")
+
+snowfall cluster init sample
+
+    sfInit(parallel=T,cpus=100,type="MPI")
+
+This batch script tells the scheduler that you would like to allocate 100
+cpus(cores) to this single task, giving you 100 snow/snowfall nodes, that
+it will run for one day and requires 2GB of memory.
+
+    $ cat mpi-job.txt
+    #!/bin/sh
+    #SBATCH --mail-type=ALL
+    #SBATCH --mail-user=uniqname@umich.edu
+    #SBATCH --ntasks=100
+    #SBATCH --time=1-0
+    #SBATCH --job-name=test_r_socket_job
+    #SBATCH --mem=2000
+    
+    R CMD BATCH ./script.R
+
+<!--#include virtual="/biostat/computing/footer.shtml" -->
+
+[SOCKETS]: http://en.wikipedia.org/wiki/Unix_domain_socket
+[MPI]: http://en.wikipedia.org/wiki/Message_Passing_Interface
+[PVM]: http://en.wikipedia.org/wiki/Parallel_Virtual_Machine

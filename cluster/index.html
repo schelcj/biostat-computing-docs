@@ -47,7 +47,7 @@
       <li><a href="faq.html">Frequently Asked Questions</a></li>
       <li><a href="accounts_allocations.html">Accounts and Allocations</a></li>
       <li>
-        <a href="#cluster_resources">Hardware/Software Resources</a>
+        Hardware/Software Resources
         <ol>
           <li><a href="login_nodes.html">Login Nodes</a></li>
           <li><a href="nodes.html">Cluster Nodes</a></li>
@@ -59,102 +59,14 @@
       <li><a href="slurm.html">SLURM Scheduler/Resource Manager</a></li>
       <li><a href="jobs.html">Job Policies/Limitations</a></li>
       <li>
-        <a href="#examples">Examples</a>
+        <a href="examples/">Examples</a>
         <ol>
-          <li><a href="#example_r_snow_socket">R with snow<em>(fall)</em> <em>type="SOCK"</em></a></li>
-          <li><a href="#example_r_snow_mpi">R with snow<em>(fall)</em> <em>type="MPI"</em></a></li>
-          <li><a href="#example_sas">SAS</a></li>
-          <li><a href="#example_matlab">MATLAB</a></li>
+          <li><a href="examples/r.html">R with snow<em>(fall)</em></a></li>
+          <li><a href="examples/sas.html">SAS</a></li>
+          <li><a href="examples/matlab.html">MATLAB</a></li>
         </ol>
       </li>
     </ol>
-
-    <a name="examples"></a>
-    <fieldset class="cluster" id="cluster_examples">
-      <legend>Examples</legend>
-
-      <h3>R with snow(fall)</h3>
-
-      <p>The snow and snowfall packages can be used in R to simplify the process of writing parallel R scripts. These packages work by creating separate R processes (slaves/nodes) and then sending jobs to those nodes in parellel. You have a couple different options for communication between these nodes. The options are communicationare <a href="http://en.wikipedia.org/wiki/Unix_domain_socket">SOCKETS</a>, <a href="http://en.wikipedia.org/wiki/Message_Passing_Interface">MPI</a>, and <a href="http://en.wikipedia.org/wiki/Parallel_Virtual_Machine">PVM</a>. The biostatistics cluster does not implement PVM leaving you with a choice between MPI and SOCKETS. The basic difference between the two is that SOCKETS only allow communication within a single host and MPI communicates across the network. When you submit a R job to the cluster using snow/snowfall you should consider how many R cluster nodes you wish to start as this will help you decide which type you need to use. You can think of the snow/snowfall nodes as 1:1 with cores and nodes, each node you start will use a single core. If you need to start more slaves then a single cluster node has cores then you will need to use MPI so those R slaves can communicate across the network. See the table above for how many cores each cluster node has. Here are some examples of sbatch batch file for each type:</p>
-
-      <a name="example_r_snow_socket"></a>
-      <h4>Snow/Snowfall node type SOCK</h4>
-      <ul>
-        <li>snow cluster init sample: <em>makeCluster(12, type="SOCK")</em></li>
-        <li>snowfall cluster init sample: <em>sfInit(parallel=T,cpus=12,type="SOCK")</em></li>
-      </ul>
-
-<pre>$ cat sock-job.txt
-#!/bin/sh
-#SBATCH --mail-type=ALL
-#SBATCH --mail-user=uniqname@umich.edu
-#SBATCH --cpus-per-task=12
-#SBATCH --time=1-0
-#SBATCH --job-name=test_r_socket_job
-#SBATCH --mem=2000
-
-srun R CMD BATCH ./script.R</pre>
-
-      <p>This batch script tells the scheduler that you would like this job to allocate 12 cpus(cores) per task, so 12 cores for 12 snow/snowfall nodes, that it will run for one day and requires 2GB of memory.</p>
-      <a href="#" class="cluster_top">[back to top]</a>
-
-      <a name="example_r_snow_mpi"></a>
-      <h4>Snow/Snowfall node type MPI</h4>
-      <ul>
-        <li>snow cluster init sample: <em>makeCluster(100, type="MPI")</em></li>
-        <li>snowfall cluster init sample: <em>sfInit(parallel=T,cpus=100,type="MPI")</em></li>
-      </ul>
-
-<pre>$ cat mpi-job.txt
-#!/bin/sh
-#SBATCH --mail-type=ALL
-#SBATCH --mail-user=uniqname@umich.edu
-#SBATCH --ntasks=100
-#SBATCH --time=1-0
-#SBATCH --job-name=test_r_socket_job
-#SBATCH --mem=2000
-
-R CMD BATCH ./script.R</pre>
-
-      <p>This batch script tells the scheduler that you would like to allocate 100 cpus(cores) to this single task, giving you 100 snow/snowfall nodes, that it will run for one day and requires 2GB of memory.</p>
-      <a href="#" class="cluster_top">[back to top]</a>
-
-      <a name="example_sas"></a>
-      <h4>SAS</h4>
-
-<pre>$ module load sas
-$ cat sas-job.txt
-#!/bin/sh
-#SBATCH --mail-type=ALL
-#SBATCH --mail-user=uniqname@umich.edu
-#SBATCH --partition=biostat-sas
-#SBATCH --time=1-0
-#SBATCH --job-name=test_sas_job
-#SBATCH --mem=2000
-
-sas file.sas</pre>
-
-      <p>First you must load the SAS module with the <em>module load sas</em> command. Then the batch script tells the scheduler that your job will use the default single core, request 2gb of memory, and request that the job be run in the <em>biostat-sas</em> partition.</p>
-      <a href="#" class="cluster_top">[back to top]</a>
-
-      <a name="example_matlab"></a>
-      <h4>MATLAB</h4>
-
-<pre>$ module load matlab
-$ cat matlab-job.txt
-#!/bin/sh
-#SBATCH --mail-type=ALL
-#SBATCH --mail-user=uniqname@umich.edu
-#SBATCH --license=MATLAB
-#SBATCH --time=1-0
-#SBATCH --job-name=test_matlab_job
-#SBATCH --mem=4000
-
-matlab -nodisplay -nodesktop -r matlab_file</pre>
-
-      <p>First you must load the MATLAB module with the <em>module load matlab</em> command. Then the batch script tells teh scheduler that your job will use teh default single core, request 4gb of memory, and request a single MATLAB license.</p>
-      <a href="#" class="cluster_top">[back to top]</a>
-    </fieldset>
   </tr>
 </table>
 <!-- footer //-->
