@@ -27,6 +27,11 @@ var breadcrumb_map = {
   examples : {
     path: '/biostat/computing/cluster/examples',
     title: 'Biostatistics Cluster Examples',
+  },
+
+  dev : {
+    path: '/biostat/dev',
+    title: 'Biostatistics Development Site',
   }
 };
 
