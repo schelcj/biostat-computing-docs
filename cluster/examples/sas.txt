@@ -23,7 +23,7 @@ the job be run in the biostat-sas partition.
     #SBATCH --partition=biostat-sas
     #SBATCH --time=1-0
     #SBATCH --job-name=test_sas_job
-    #SBATCH --mem=2000
+    #SBATCH --mem-per-cpu=2000
     
     sas file.sas
 
