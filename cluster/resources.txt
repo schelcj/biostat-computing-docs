@@ -1,4 +1,4 @@
-title:              Resources
+title:              Biostatistics Cluster Resources
 css:                /css/sph.css
 css:                /biostat/css/stylesheet.css
 css:                /biostat/computing/overrides.css
@@ -10,7 +10,7 @@ base header level:  3
 <!--#include virtual="/biostat/computing/header.shtml" -->
 
 # Departmental Documentation #
-* [Cluster Intro Brown Bag Notes][1]
+* [Cluster Intro Brown Bag Notes 2010/11][1]
 * [Cluster Intro Brown Bag Seminar Slides 2011/12][10]
 * [Cluster Status][2]
 

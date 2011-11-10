@@ -26,5 +26,6 @@ alt_foramts:        txt
     1. [R with snow/snowfall](examples/r.html)
     1. [SAS](examples/sas.html)
     1. [MATLAB](examples/matlab.html)
+1. [Resources](resources.html)
 
 <!--#include virtual="/biostat/computing/footer.shtml" -->
