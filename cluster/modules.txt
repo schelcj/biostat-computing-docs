@@ -15,4 +15,4 @@
 |python|2.7.1 |Python development and runtime environment.|N/A|[Vendor](http://www.python.org/)|
 |R|2.10.1 2.13.0 |R is a language and environment for statistical computing and graphics.|N/A|[Vendor](http://www.r-projects.org/)|
 |sas|9.2 |SAS Statistical Analysis package|8|[Vendor](http://www.sas.com/)|
-|slurm|2.2.7 |SLURM Resource Manager and Job Scheduler|N/A|[Vendor](https://computing.llnl.gov/linux/slurm/)|
+|slurm|2.2.7 2.3.1 |SLURM Resource Manager and Job Scheduler|N/A|[Vendor](https://computing.llnl.gov/linux/slurm/)|
