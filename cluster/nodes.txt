@@ -11,12 +11,12 @@ alt_formats:        txt
 
 # Nodes #
 
-| Hostname   | Processor        | Processor Clock Speed | Physical Cores | Memory | Diskpace | Slurm Features    |
-|------------|------------------|-----------------------|----------------|--------|----------|-------------------|
-| cn0[01-12] | Intel Xeon X5660 | 2.80GHz               | 12             | 32GB   | 85GB     | rack-15W-E, intel |
-| cn0[13-17] | Intel Xeon X5660 | 2.80GHz               | 12             | 32GB   | 85GB     | rack-15W-F, intel |
-| tellar     | AMD Opteron 6174 | 3.0GHz                | 48             | 128GB  | 256GB    | rack-15W-E, amd   |
-| andoria    | Intel Xeon X5680 | 3.33GHz               | 12             | 144GB  | 500GB    | rack-15W-E, intel |
-| vulcan     | Intel Xeon X5680 | 3.33GHz               | 12             | 144GB  | 500GB    | rack-15W-E, intel |
+| Hostname   | Processor        | Processor Clock Speed | Physical Cores | Memory | Slurm Features    |
+|------------|------------------|-----------------------|----------------|--------|-------------------|
+| cn0[01-12] | Intel Xeon X5660 | 2.80GHz               | 12             | 32GB   | rack-15W-E, intel |
+| cn0[13-18] | Intel Xeon X5660 | 2.80GHz               | 12             | 32GB   | rack-15W-F, intel |
+| andoria    | Intel Xeon X5680 | 3.33GHz               | 12             | 144GB  | rack-15W-E, intel |
+| vulcan     | Intel Xeon X5680 | 3.33GHz               | 12             | 144GB  | rack-15W-E, intel |
+| tellar     | AMD Opteron 6174 | 3.0GHz                | 48             | 128GB  | rack-15W-E, amd   |
 
 <!--#include virtual="/biostat/computing/footer.shtml" -->
