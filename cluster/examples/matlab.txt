@@ -23,7 +23,7 @@ single core, request 4gb of memory, and request a single MATLAB license.
     #SBATCH --license=MATLAB
     #SBATCH --time=1-0
     #SBATCH --job-name=test_matlab_job
-    #SBATCH --mem=4000
+    #SBATCH --mem-per-cpu=4000
     
     matlab -nodisplay -nodesktop -r matlab_file
 

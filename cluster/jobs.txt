@@ -42,6 +42,7 @@ partition you use depends on your job requirements or research group.
 | contrib-jmgt    | cn017                            | jmgt-users    | Cluster contribution by Jermey Taylor                                    |
 | contrib-tdjtdj  | cn018                            | tdjtdj-users  | Cluster contribution by Tim Johnson                                      |
 | contrib-bnan    | cn0[13-16]                       | bnan-users    | Cluster contribution by Bin Nan                                          |
+| contrib-tdjtdj  | cn018                            | tdjtdj-users  | Cluster contribution by Tim Johnson                                      |
 
 <!--#include virtual="/biostat/computing/footer.shtml" -->
 

@@ -41,18 +41,17 @@ snowfall cluster init sample
 
     cl <- sfInit(parallel=T,cpus=12,type="SOCK")
 
-This batch script tells the scheduler that you would like this job to
-allocate 12 cpus(cores) per task, so 12 cores for 12 snow/snowfall nodes,
-that it will run for one day and requires 2GB of memory.
+This batch script requests a whole node be allocated to this job giving your
+code up to 12 cores. This means you can start 12 snow/snowfall nodes within
+your code.
 
     $ cat sock-job.txt
     #!/bin/sh
     #SBATCH --mail-type=ALL
     #SBATCH --mail-user=uniqname@umich.edu
-    #SBATCH --cpus-per-task=12
     #SBATCH --time=1-0
     #SBATCH --job-name=test_r_socket_job
-    #SBATCH --mem=2000
+    #SBATCH --node=1-1
     
     srun R CMD BATCH ./script.R
 
@@ -78,7 +77,7 @@ it will run for one day and requires 2GB of memory.
     #SBATCH --ntasks=100
     #SBATCH --time=1-0
     #SBATCH --job-name=test_r_socket_job
-    #SBATCH --mem=2000
+    #SBATCH --mem-per-cpu=2000
     
     R CMD BATCH ./script.R
 

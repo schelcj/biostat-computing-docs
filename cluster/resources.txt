@@ -1,4 +1,4 @@
-title:              Resources
+title:              Biostatistics Cluster Resources
 css:                /css/sph.css
 css:                /biostat/css/stylesheet.css
 css:                /biostat/computing/overrides.css
@@ -10,7 +10,8 @@ base header level:  3
 <!--#include virtual="/biostat/computing/header.shtml" -->
 
 # Departmental Documentation #
-* [Cluster Intro Brown Bag Notes][1]
+* [Cluster Intro Brown Bag Notes 2010/11][1]
+* [Cluster Intro Brown Bag Seminar Slides 2011/12][10]
 * [Cluster Status][2]
 
 # Utils #
@@ -39,3 +40,4 @@ base header level:  3
 [7]: http://www.sfu.ca/~sblay/R/snow.html
 [8]: http://docs.google.com/viewer?a=v&q=cache:ZcrRMWgNs18J:cran.r-project.org/web/packages/snowfall/vignettes/snowfall.pdf+R+snowfall&hl=en&gl=us&pid=bl&srcid=ADGEESiFpPILuTD4x7AVQECq4TAympKaRGRHo62-RqvxjYZirRdukjp7fyYd1R_q80vD3tEcHts29OyBREhqIXDtdX9Y7deCfF5OjXzY7Bw-PoIm1-pdJc1Xv70L6P7kSdXg2RHUspX4&sig=AHIEtbRf_e1D-6f9a4-Jg64gyo6XBmK0-Q
 [9]: http://www.itd.umich.edu/itcsdocs/r1070/
+[10]: http://www.sph.umich.edu/biostat/computing/docs/brown_bag_2011-2012.pdf
