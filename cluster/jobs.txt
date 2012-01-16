@@ -34,15 +34,9 @@ partition you use depends on your job requirements or research group.
 
 | Name            | Nodes                            | Access Group  | Description                                                              |
 |-----------------|----------------------------------|---------------|--------------------------------------------------------------------------|
-| debug           | cn0[01-18],andoria,tellar,vulcan | wheel         | Administrator debugging/testing                                          |
 | biostat-default | cn0[01-18],andoria,tellar,vulcan | biostat-users | Default partition for all users                                          |
 | biostat-bigmem  | andoria, tellar, vulcan          | biostat-users | For jobs that require more then 30GB of memory                           | 
 | biostat-sas     | andoria, vulcan                  | biostat-users | All SAS jobs should run in this partition due to licensing restrictions  | 
-| contrib-mbb     | cn0[01-18],andoria,tellar,vulcan | mbb-users     | Preemptable partition for Mort Brown Research group                      |
-| contrib-jmgt    | cn017                            | jmgt-users    | Cluster contribution by Jermey Taylor                                    |
-| contrib-tdjtdj  | cn018                            | tdjtdj-users  | Cluster contribution by Tim Johnson                                      |
-| contrib-bnan    | cn0[13-16]                       | bnan-users    | Cluster contribution by Bin Nan                                          |
-| contrib-tdjtdj  | cn018                            | tdjtdj-users  | Cluster contribution by Tim Johnson                                      |
 
 <!--#include virtual="/biostat/computing/footer.shtml" -->
 
