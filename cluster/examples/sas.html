@@ -18,14 +18,14 @@
 
 <p>First you must load the SAS module with the module load sas command. Then the batch script tells the
 scheduler that your job will use the default single core, request 2gb of memory, and request that
-the job be run in the biostat-sas partition.</p>
+generic resource for SAS.</p>
 
 <pre><code>$ module load sas
 $ cat sas-job.txt
 #!/bin/sh
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=uniqname@umich.edu
-#SBATCH --partition=biostat-sas
+#SBATCH --gres=SAS
 #SBATCH --time=1-0
 #SBATCH --job-name=test_sas_job
 #SBATCH --mem-per-cpu=2000

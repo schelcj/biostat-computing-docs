@@ -35,8 +35,6 @@ partition you use depends on your job requirements or research group.
 | Name            | Nodes                            | Access Group  | Description                                                              |
 |-----------------|----------------------------------|---------------|--------------------------------------------------------------------------|
 | biostat-default | cn0[01-18],andoria,tellar,vulcan | biostat-users | Default partition for all users                                          |
-| biostat-bigmem  | andoria, tellar, vulcan          | biostat-users | For jobs that require more then 30GB of memory                           | 
-| biostat-sas     | andoria, vulcan                  | biostat-users | All SAS jobs should run in this partition due to licensing restrictions  | 
 
 <!--#include virtual="/biostat/computing/footer.shtml" -->
 
