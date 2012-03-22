@@ -16,6 +16,52 @@
 
 <h1 id="r">R</h1>
 
+<ol>
+<li><a href="#basicrjob">Basic R Job</a></li>
+<li><a href="#arrayjobwithr">Array job with R</a></li>
+<li><a href="#rwithsnowfall">R with snow(fall)</a></li>
+<li><a href="#snowsnowfallnodetypesock">Snow/Snowfall node type SOCK</a></li>
+<li><a href="#snowsnowfallnodetypempi">Snow/Snowfall node type MPI</a></li>
+</ol>
+
+<h2 id="basicrjob">Basic R Job</h2>
+
+<pre><code>$ cat job.txt
+#!/bin/sh
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=uniqname@umich.edu
+#SBATCH --time=1-0
+#SBATCH --job-name=basic_r_job
+
+srun R CMD BATCH ./script.R
+</code></pre>
+
+<h2 id="arrayjobwithr">Array job with R</h2>
+
+<pre><code>$ cat job.txt
+#!/bin/sh
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=uniqname@umich.edu
+#SBATCH --time=1-0
+#SBATCH --job-name=basic_r_job
+#SARRAY --range=1-10
+
+srun R CMD BATCH ./script.R
+</code></pre>
+
+<p><a href="http://www.sph.umich.edu/biostat/computing/cluster/slurm.html#sarray">sarray</a> provides the iteration of the array to the batch script via the <strong>$SLURM_ARRAYID</strong>
+environment variable. This provides a means of changing the flow of your code, executing a different
+R script, or setting variables in your code. To access the variable from within R simply use the
+<em>Sys.getenv()</em> function.</p>
+
+<pre><code>var &lt;- Sys.getenv('SLURM_ARRAYID')
+</code></pre>
+
+<p>This gives you the SLURM_ARRAYID value as a string. You may need to coerce it into an integer with</p>
+
+<pre><code>var &lt;- as.numeric(Sys.getenv('SLURM_ARRAYID'))
+</code></pre>
+
 <h2 id="rwithsnowfall">R with snow(fall)</h2>
 
 <p>The snow and snowfall packages can be used in R to simplify the process of

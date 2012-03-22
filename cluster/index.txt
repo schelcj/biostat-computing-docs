@@ -23,7 +23,7 @@ alt_foramts:        txt
 1. [Storage](storage.html)
 1. [Software](software.html)
 1. [Examples](examples/)
-    1. [R with snow/snowfall](examples/r.html)
+    1. [R](examples/r.html)
     1. [SAS](examples/sas.html)
     1. [MATLAB](examples/matlab.html)
 1. [Resources](resources.html)

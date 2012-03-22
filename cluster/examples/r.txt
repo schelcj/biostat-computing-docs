@@ -10,6 +10,47 @@ alt_formats:        txt
 <!--#include virtual="/biostat/computing/header.shtml" -->
 
 # R #
+1. [Basic R Job][]
+1. [Array job with R][]
+1. [R with snow(fall)][]
+1. [Snow/Snowfall node type SOCK][]
+1. [Snow/Snowfall node type MPI][]
+
+## Basic R Job ##
+
+    $ cat job.txt
+    #!/bin/sh
+    #SBATCH --mail-type=ALL
+    #SBATCH --mail-user=uniqname@umich.edu
+    #SBATCH --time=1-0
+    #SBATCH --job-name=basic_r_job
+    
+    srun R CMD BATCH ./script.R
+  
+## Array job with R ##
+
+    $ cat job.txt
+    #!/bin/sh
+    #SBATCH --mail-type=ALL
+    #SBATCH --mail-user=uniqname@umich.edu
+    #SBATCH --time=1-0
+    #SBATCH --job-name=basic_r_job
+    #SARRAY --range=1-10
+      
+    srun R CMD BATCH ./script.R
+  
+
+[sarray][] provides the iteration of the array to the batch script via the __$SLURM_ARRAYID__
+environment variable. This provides a means of changing the flow of your code, executing a different
+R script, or setting variables in your code. To access the variable from within R simply use the
+*Sys.getenv()* function.
+
+    var <- Sys.getenv('SLURM_ARRAYID')
+
+This gives you the SLURM_ARRAYID value as a string. You may need to coerce it into an integer with
+
+    var <- as.numeric(Sys.getenv('SLURM_ARRAYID'))
+
 
 ## R with snow(fall) ##
 
@@ -86,3 +127,4 @@ it will run for one day and requires 2GB of memory.
 [SOCKETS]: http://en.wikipedia.org/wiki/Unix_domain_socket
 [MPI]: http://en.wikipedia.org/wiki/Message_Passing_Interface
 [PVM]: http://en.wikipedia.org/wiki/Parallel_Virtual_Machine
+[sarray]: http://www.sph.umich.edu/biostat/computing/cluster/slurm.html#sarray

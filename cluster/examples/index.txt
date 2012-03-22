@@ -11,7 +11,7 @@ alt_formats:        txt
 
 # Examples #
 
-1. [R with snow/snowfall](r.html)
+1. [R](r.html)
 1. [SAS](sas.html)
 1. [MATLAB](matlab.html)
 
