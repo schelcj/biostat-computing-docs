@@ -12,6 +12,7 @@ alt_formats:        txt
 # R #
 1. [Basic R Job][]
 1. [Array job with R][]
+1. [R with getopt][]
 1. [R with snow(fall)][]
 1. [Snow/Snowfall node type SOCK][]
 1. [Snow/Snowfall node type MPI][]
@@ -45,12 +46,10 @@ environment variable. This provides a means of changing the flow of your code, e
 R script, or setting variables in your code. To access the variable from within R simply use the
 *Sys.getenv()* function.
 
-    var <- Sys.getenv('SLURM_ARRAYID')
+<script src="https://gist.github.com/2360044.js?file=gistfile1.r"></script>
 
-This gives you the SLURM_ARRAYID value as a string. You may need to coerce it into an integer with
-
-    var <- as.numeric(Sys.getenv('SLURM_ARRAYID'))
-
+## R with getopt ##
+<script src="https://gist.github.com/2360005.js?file=gistfile1.r"></script>
 
 ## R with snow(fall) ##
 
