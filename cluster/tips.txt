@@ -30,6 +30,13 @@ for example in R like this
 You can also use the variable as a command line parameter to your job like this example also in R
 <script src="https://gist.github.com/2360005.js?file=gistfile1.r"></script>
 
+Each job could output its results to seperate files based on this index, or possibly the job id using the
+*$SLURM_JOB_ID* environment variables using the same means as the array index. Once all jobs are complete
+use a separate job to combine these results into your final results.
+
+When you start submitting hundreds of jobs with sarray it would be a good idea to turn off the email
+notifications by dropping the *--mail-type* and *--mail-user* options to avoid spamming yourself.
+
 
 ### Job dependencies ###
 
