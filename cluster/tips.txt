@@ -1,0 +1,36 @@
+title:              Biostatistics Cluster Frequently Asked Questions
+css:                /css/sph.css
+css:                /biostat/css/stylesheet.css
+css:                /biostat/computing/overrides.css
+xhtml header:       <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+xhtml header:       <link rel="stylesheet" type="text/css" href="/css/mobile.css" media="handheld" />
+breadcrumb:         sph|biostat|computing|cluster
+alt_formats:        txt
+
+<!--#include virtual="/biostat/computing/header.shtml" -->
+
+# Tips #
+
+1. [Job arrays][]
+1. [Job dependencies][]
+
+### Job arrays ###
+Job arrays provide a means of submitting multiple similar jobs. The only difference being an array index,
+that is incremented for each job, that can be used in your batch script, or codes, to provide a different
+parameter, load data files, or change the flow of your code. 
+
+To submit an array job use the [sarray][] with the *#SARRAY --range=i-n* directive. For example:
+<script src="https://gist.github.com/2377668.js?file=gistfile1.sh"></script>
+
+This batch script will submit job 10 jobs with names *array_job_test[1] ... array_job_test[10]* incrementing
+the *$SLURM_ARRAYID* with each job submission. This environment variable can be access directly in your code,
+for example in R like this
+<script src="https://gist.github.com/2360044.js?file=gistfile1.r"></script>
+
+You can also use the variable as a command line parameter to your job like this example also in R
+<script src="https://gist.github.com/2360005.js?file=gistfile1.r"></script>
+
+
+### Job dependencies ###
+
+[sarray]: /biostat/computing/cluster/slurm.html#sarray
