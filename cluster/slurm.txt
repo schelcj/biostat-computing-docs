@@ -56,7 +56,7 @@ the batch script on the first node in the set of allocated nodes.
     #SBATCH --ntasks=5
     #SBATCH --job-name=test
 
-    R CMD BATCH script.R
+    srun R CMD BATCH script.R
 
     $ sbatch ./sample.txt
     Submitted batch job 25618
