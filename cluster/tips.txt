@@ -39,5 +39,51 @@ notifications by dropping the *--mail-type* and *--mail-user* options to avoid s
 
 
 ### Job dependencies ###
+It is possible to delay the start of a job until a specified dependency
+has been satisfied. For example suppose you have multiple jobs running
+concurrently that each generate seperate datasets that need to be aggregated
+as the final step. You could just wait for all the jobs to complete
+and download the results and combine on your local system. Or you could create
+another job to aggregate your results and set it dependent on all your jobs.
+
+With dependencies you have many options. Here is the relevant porition of the
+man page for [sbatch][]:
+
+    -d, --dependency=<dependency_list>
+           Defer  the  start  of this job until the specified dependencies have been satisfied com‐
+           pleted.  <dependency_list> is of the form <type:job_id[:job_id][,type:job_id[:job_id]]>.
+           Many  jobs  can  share  the  same dependency and these jobs may even belong to different
+           users. The  value may be changed after job submission using the scontrol command.
+
+           after:job_id[:jobid...]
+                  This job can begin execution after the specified jobs have begun execution.
+
+           afterany:job_id[:jobid...]
+                  This job can begin execution after the specified jobs have terminated.
+
+           afternotok:job_id[:jobid...]
+                  This job can begin execution after the specified jobs  have  terminated  in  some
+                  failed state (non-zero exit code, node failure, timed out, etc).
+
+           afterok:job_id[:jobid...]
+                  This  job can begin execution after the specified jobs have successfully executed
+                  (ran to completion with an exit code of zero).
+
+           expand:job_id
+                  Resources allocated to this job should be used to expand the specified job.   The
+                  job  to  expand must share the same QOS (Quality of Service) and partition.  Gang
+                  scheduling of resources in the partition is also not supported.
+
+           singleton
+                  This job can begin execution after any previously launched jobs sharing the  same
+                  job name and user have terminated.
+
+This gives you many options for job dependencies. To continue with the example above, all your
+jobs that run concurrently should have the same _--job-name_, as well as the aggregation job, 
+allowing you to use the _singleton_ option for your aggregation job. This option will cause this
+job to wait for all jobs with the same name to complete before it will start. There are many more
+options for dependencies such as allowing you to handle job failure. 
+
 
 [sarray]: /biostat/computing/cluster/slurm.html#sarray
+[sbatch]: /biostat/computing/cluster/slurm.html#sbatch
