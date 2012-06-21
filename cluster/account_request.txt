@@ -1,0 +1,16 @@
+title:              Biostatistics Cluster Account Request Form
+css:                /css/sph.css
+css:                /biostat/css/stylesheet.css
+css:                /biostat/computing/overrides.css
+xhtml header:       <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+xhtml header:       <link rel="stylesheet" type="text/css" href="/css/mobile.css" media="handheld" />
+breadcrumb:         sph|biostat|computing|cluster
+alt_formats:        txt
+
+<!--#include virtual="/biostat/computing/header.shtml" -->
+
+# Account Requests #
+
+<iframe src="https://docs.google.com/a/umich.edu/spreadsheet/embeddedform?formkey=dHBEM2JKeXEtMzJrNHFKWjJIdzVCZ2c6MQ" width="760" height="1158" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+
+<!--#include virtual="/biostat/computing/footer.shtml" -->
