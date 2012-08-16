@@ -11,6 +11,15 @@ alt_formats:        txt
 
 # Cluster Status #
 
+### Fri Jul 27 01:54:09 EDT 2012 ###
+The previous outage has been corrected. A node hardware failure
+caused the primary swtich to lock up. Jobs running on andoria,
+vulcan, or tellar were lost. 
+
+### Thu Jul 26 23:29:27 EDT 2012 ###
+Unknown event has occured taking all compute nodes offline. Currently
+working to resolve the problem.
+
 ### Tue Jul 17 22:42:38 EDT 2012 ###
 The clsuter is returning to normal service. Several compute nodes
 were reported and jobs running on those nodes where lost. Sorry, for
