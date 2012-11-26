@@ -74,7 +74,7 @@ partition you use depends on your job requirements or research group.
 
 | Name            | Nodes                            | Access Group  | Description                                                              |
 |-----------------|----------------------------------|---------------|--------------------------------------------------------------------------|
-| biostat-default | cn0[01-21],andoria,vulcan        | biostat-users | Default partition for all users                                          |
+| biostat-default | cn0[01-25],andoria,vulcan        | biostat-users | Default partition for all users                                          |
 
 <!--#include virtual="/biostat/computing/footer.shtml" -->
 
