@@ -15,7 +15,7 @@
   <tr valign="top">
     <td id="left">
 	<!--#include virtual="/biostat/nav.html" -->
-  <!--#include virtual="/biostat/computing/facts-figures.shtml" -->
+  <!--#include virtual="/biostat/facts.html" -->
   </td>
   <td id="content"><a name="content"></a>
   <!-- body content //-->
