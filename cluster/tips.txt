@@ -20,18 +20,43 @@ that is incremented for each job, that can be used in your batch script, or code
 parameter, load data files, or change the flow of your code. 
 
 To submit an array job use the [sarray][] with the *#SARRAY --range=i-n* directive. For example:
-<script src="https://gist.github.com/2377668.js?file=gistfile1.sh"></script>
+
+    #!/bin/sh
+    
+    #SBATCH --mail-type=ALL
+    #SBATCH --mail-user=uniqname@umich.edu
+    #SBATCH --time=1-0
+    #SBATCH --job-name=array_job_test
+    
+    #SARRAY --range=1-10
+    
+    srun Rscript ./script.R
 
 This batch script will submit job 10 jobs with names *array_job_test[1] ... array_job_test[10]* incrementing
 the *$SLURM_ARRAYID* with each job submission. This environment variable can be access directly in your code,
 for example in R like this
-<script src="https://gist.github.com/2360044.js?file=gistfile1.r"></script>
+
+    # grab the array id value from the environment variable passed from sbatch
+    slurm_arrayid <- Sys.getenv('SLURM_ARRAYID')
+    
+    # coerce the value to an integer
+    n <- as.numeric(slurm_arrayid)
 
 You can also use the variable as a command line parameter to your job like this example also in R
-<script src="https://gist.github.com/2360005.js?file=gistfile1.r"></script>
+
+    #!/bin/sh
+    
+    #SBATCH --mail-type=ALL
+    #SBATCH --mail-user=uniqname@umich.edu
+    #SBATCH --time=1-0
+    #SBATCH --job-name=array_job_test
+    
+    #SARRAY --range=1-10
+    
+    srun Rscript ./script.R --array_id=${SLURM_ARRAYID}
 
 Each job could output its results to seperate files based on this index, or possibly the job id using the
-*$SLURM_JOB_ID* environment variables using the same means as the array index. Once all jobs are complete
+*$SLURM_JOBID* environment variables using the same means as the array index. Once all jobs are complete
 use a separate job to combine these results into your final results.
 
 When you start submitting hundreds of jobs with sarray it would be a good idea to turn off the email

@@ -20,22 +20,83 @@ alt_formats:        txt
 
 ### Basic R Job ###
 For the majority of your R work a simple batch script like below will suffice:
-<script src="https://gist.github.com/2360874.js?file=gistfile1.sh"></script>
+
+    #!/bin/sh
+    
+    #SBATCH --mail-type=ALL
+    #SBATCH --mail-user=uniqname@umich.edu
+    #SBATCH --time=1-0
+    #SBATCH --job-name=basic_r_job
+    
+    srun R CMD BATCH ./script.R
   
 ### Array job with R ###
 [sarray][] provides the iteration of the array to the batch script via the __$SLURM_ARRAYID__
 environment variable. This provides a means of changing the flow of your code, executing a different
 R script, or setting variables in your code. A basic batch script that uses sarray to run multiple
 R jobs:
-<script src="https://gist.github.com/2360989.js?file=gistfile1.sh"></script>
+
+    #!/bin/sh
+    
+    #SBATCH --mail-type=ALL
+    #SBATCH --mail-user=uniqname@umich.edu
+    #SBATCH --time=1-0
+    #SBATCH --job-name=basic_r_job
+    
+    #SARRAY --range=1-10
+           
+    srun R CMD BATCH ./script.R
 
 ### R array job with getenv() ###
 To access the variable from within R simply use the *Sys.getenv()* function.
-<script src="https://gist.github.com/2360044.js?file=gistfile1.r"></script>
+
+    #!/usr/bin/env Rscript
+    
+    # grab the array id value from the environment variable passed from sbatch
+    slurm_arrayid <- Sys.getenv('SLURM_ARRAYID')
+    
+    # coerce the value to an integer
+    n <- as.numeric(slurm_arrayid)
 
 ### R array job with getopt() ###
 To access the variable as a command line argugement 
-<script src="https://gist.github.com/2360005.js?file=gistfile1.r"></script>
+
+    #!/usr/bin/env Rscript                                                                      
+    
+    # spec contains at least 4 columns, as many as 5 columns.                                   
+    #                                                                                           
+    # column 1: long name of flag                                                               
+    #                                                                                           
+    # column 2: short name of flag                                                              
+    #                                                                                           
+    # column 3: argument flag.  0=no argument, 1=required argument, 2=optional argument         
+    #                                                                                           
+    # column 4: mode of argument.  one of "logical", "integer", "double", "complex", "character"
+    #                                                                                           
+    # column 5 (optional): description of option.                                               
+    #
+    # Examples:
+    #   $ ./example.R --array_id 42
+    #   $ ./example.R --array_id $SLURM_ARRAYID
+    
+    library(getopt);                                                                            
+    
+    opt = getopt(matrix(c(                                                                      
+      'help',     'h', 0, "logical", "Usage information",                                       
+      'array_id', 'a', 1, "integer", "Value of the $SLURM_ARRAYID env var"                      
+    ),ncol=5,byrow=TRUE));                                                                      
+    
+    if (!is.null(opt$help)) {                                                                   
+      writeLines("Usage: test.R [options]");                                                    
+      writeLines("\t--help,h\tPrint usage options");                                            
+      writeLines("\t--array_id,a\tValue of $SLURM_ARRAY_ID env var");                           
+    
+      q(status=1);                                                                              
+    }                                                                                           
+    
+    print(opt$array_id);                                                                        
+    
+    n <- opt$array_id;
 
 ### R with snow(fall) ###
 
@@ -57,18 +118,41 @@ Here are some examples of sbatch batch file for each type:
 
 ### Snow/Snowfall node type SOCK ###
 This is a sample of initializing your cluster in snow and snowfall.
-<script src="https://gist.github.com/2361085.js?file=gistfile1.r"></script>
+
+    # snow cluster init
+    library(snow)
+    cl <- makeCluster(12, type="SOCK")
+    
+    # snowfall cluster init
+    library(snowfall)
+    cl <- sfInit(parallel=T,cpus=12,type="SOCK")
 
 This batch script requests a whole node be allocated to this job giving your
 code up to 12 cores. This means you can start 12 snow/snowfall nodes within
 your code. The key is the __--nodes=1-1__ option. This tells the scheduler
 that you need exactly one whole node for your job with access to all the cores
 in that node.
-<script src="https://gist.github.com/2361123.js?file=gistfile1.sh"></script>
+
+    #!/bin/sh
+    
+    #SBATCH --mail-type=ALL
+    #SBATCH --mail-user=uniqname@umich.edu
+    #SBATCH --time=1-0
+    #SBATCH --job-name=test_r_socket_job
+    #SBATCH --node=1-1
+    
+    srun R CMD BATCH ./script.R
 
 ### Snow/Snowfall node type MPI ###
 This is a sample of initializing your cluster in snow and snowfall.
-<script src="https://gist.github.com/2361157.js?file=gistfile1.r"></script>
+
+    # snow cluster init
+    library(snow)
+    cl <- makeCluster(100, type="MPI")
+    
+    # snowfall cluster init
+    library(snowfall)
+    cl <- sfInit(parallel=T,cpus=100,type="MPI")
 
 This batch script tells the scheduler that you would like to allocate 100
 cpus(cores) to this single task, giving you 100 snow/snowfall nodes, that
@@ -78,7 +162,17 @@ and that there is no __srun__ on the *R CMD BATCH* line. Do __NOT__ include srun
 when using snow/snowfall and MPI. These libraries rely on Rmpi which will
 handle starting the mpi session based on the environment that sbatch creates
 for your job.
-<script src="https://gist.github.com/2361175.js?file=gistfile1.r"></script>
+
+    #!/bin/sh
+    
+    #SBATCH --mail-type=ALL
+    #SBATCH --mail-user=uniqname@umich.edu
+    #SBATCH --ntasks=100
+    #SBATCH --time=1-0
+    #SBATCH --job-name=test_r_socket_job
+    #SBATCH --mem-per-cpu=2000
+    
+    R CMD BATCH ./script.R
 
 <!--#include virtual="/biostat/computing/footer.shtml" -->
 
