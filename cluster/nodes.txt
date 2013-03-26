@@ -17,6 +17,7 @@ alt_formats:        txt
 | cn019      | AMD Opteron 6174   | 3.0GHz                | 48             | 128GB  | rack-15W-F, amd   |
 | cn0[20-21] | Intel Xeon E5-2440 | 2.40GHz               | 12             | 32GB   | rack-15W-F, intel |
 | cn0[22-25] | Intel Xeon E5-2440 | 2.40GHz               | 12             | 32GB   | rack-15W-G, intel |
+| cn0[26-27] | Intel Xeon E5-2470 | 2.30GHz               | 16             | 32GB   | rack-15W-G, intel |
 | andoria    | Intel Xeon X5680   | 3.33GHz               | 12             | 144GB  | rack-15W-E, intel |
 | vulcan     | Intel Xeon X5680   | 3.33GHz               | 12             | 144GB  | rack-15W-E, intel |
 
