@@ -11,11 +11,17 @@ alt_formats:        txt
 
 # Login Nodes #
 
+1. [Usage][]
+1. [Access][]
+1. [Authentication][]
+1. [Nodes][]
+1. [Transfering Data][]
+
 The login nodes are the front end to the cluster for all our users. They are accessible from
 on and off campus. They are a shared resource and, as such, it is expected that users do not
 monopolize them. 
 
-## Policies covering usage ##
+## Usage ##
 
 Appropriate uses of the login nodes:
 
@@ -24,6 +30,16 @@ Appropriate uses of the login nodes:
 * Submitting and monitoring the status of jobs
 * Testing executables to ensure they will run on the cluster's infrastructure
   *(limited to a maximum of 5 minutes of cpu-time)*. 
+
+## Access ##
+The login nodes only allow connections from within the umich network, connections from
+the public internet are not allowed. To login from off campus you will need to use either
+the [ITS Login Service][] or the [ITS VPN Service][].
+
+## Authentication ##
+
+In order to login to the cluster you need a valid UMich [uniqname][] with [kerberos][] password. This is the same
+account you use to access your email and or [wolverineaccess.umich.edu][].
 
 ## Nodes ##
 
@@ -37,11 +53,6 @@ here is the list of current nodes that make up the login pool.
 |                             |              |
 | bajor.sph.umich.edu         | Intel        |
 | idran.sph.umich.edu         | Intel        |
-
-## Authentication ##
-
-In order to login to the cluster you need a valid UMich [uniqname][] with [kerberos][] password. This is the same
-account you use to access your email and or [wolverineaccess.umich.edu][].
 
 ## Transfering Data ##
 
@@ -65,3 +76,5 @@ clients options depending on the platform of your client.
 [uniqname]: http://www.itd.umich.edu/uniqname/
 [kerberos]: http://www.itd.umich.edu/your-account/whatiskpass.php
 [CyberDuck]: http://cyberduck.ch/
+[ITS Login Service]: http://www.itcs.umich.edu/login/
+[ITS VPN Service]: http://www.itcom.itd.umich.edu/vpn/

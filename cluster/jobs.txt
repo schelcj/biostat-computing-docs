@@ -65,7 +65,7 @@ contributed nodes but at this time that is not the case.*
 * Maximum of 1000 jobs in the queue regardless of state (ie; running, pending) per user.
 * Unless requested each job defaults to one cpu core and 1GB of memory per job. You can request more with various options to salloc/srun/sbatch.
 * Time argument *(--time=)* is required otherwise default time of 10 minutes is applied to your job.
-* Maximum core usage, in aggregate, by a single user is 65% of the total cores available.
+* Maximum core usage, in aggregate, by a single user is 50% of the total cores available.
 
 ### Partitions ###
 Partitions in [SLURM][] are groupings of computation nodes, similiar to queues in other schedulers, that are used
@@ -74,7 +74,7 @@ partition you use depends on your job requirements or research group.
 
 | Name            | Nodes                            | Access Group  | Description                                                              |
 |-----------------|----------------------------------|---------------|--------------------------------------------------------------------------|
-| biostat-default | cn0[01-25],andoria,vulcan        | biostat-users | Default partition for all users                                          |
+| biostat-default | cn0[01-27],andoria,vulcan        | biostat-users | Default partition for all users                                          |
 
 <!--#include virtual="/biostat/computing/footer.shtml" -->
 
