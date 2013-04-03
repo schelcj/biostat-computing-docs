@@ -29,7 +29,6 @@ alt_foramts:        txt
     1. [MATLAB](examples/matlab.html)
 1. [Tips](tips.html)
 1. [Resources](resources.html)
-1. [Status](status.html)
 1. [Usage Terms](terms.html)
 
 <!--#include virtual="/biostat/computing/footer.shtml" -->
