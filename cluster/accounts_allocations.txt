@@ -12,12 +12,8 @@ alt_formats:        txt
 # Accounts and Allocations #
 
 ### Accounts ###
-
-Cluster accounts are available to all biostat faculty, students and researchers.
-There is currently no cost associated with an account allocation but that may
-change in the future. Faculty may request an account directly by emailing
-[sph-biostat-help@umich.edu][]. Students will have to have their advisor
-request the account for them. Researchers have your your PI request your account.
+Please complete the [account request][] form to request an account. A valid Umich [shortcode][]
+is required for all accounts. Your faculty advisor or PI will have this code.
 
 ### Login Credentials ###
 
@@ -43,3 +39,5 @@ __PASSWORD:__
 [uniqname]: http://www.itd.umich.edu/uniqname/
 [kerberos]: http://www.itd.umich.edu/your-account/whatiskpass.php
 [login nodes]: /biostat/computing/cluster/login_nodes.html
+[account request]: /biostat/computing/cluster/account_request.html
+[shortcode]: http://www.finance.umich.edu/finops/accounting/chartfields/shortcode
