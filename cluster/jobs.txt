@@ -43,8 +43,8 @@ To view a jobs priority use the scontrol or sprio commands:
       PreemptTime=None SuspendTime=None SecsPreSuspend=0
       Partition=biostat-default AllocNode:Sid=idran:17807
       ReqNodeList=(null) ExcNodeList=(null)
-      NodeList=vulcan
-      BatchHost=vulcan
+      NodeList=cn029
+      BatchHost=cn029
       NumNodes=1 NumCPUs=1 CPUs/Task=1 ReqS:C:T=*:*:*
       MinCPUsNode=1 MinMemoryNode=2000M MinTmpDiskNode=0
       Features=(null) Gres=SAS Reservation=(null)
@@ -74,7 +74,7 @@ partition you use depends on your job requirements or research group.
 
 | Name            | Nodes                            | Access Group  | Description                                                              |
 |-----------------|----------------------------------|---------------|--------------------------------------------------------------------------|
-| biostat-default | cn0[01-27],andoria,vulcan        | biostat-users | Default partition for all users                                          |
+| biostat-default | cn0[01-29]                       | biostat-users | Default partition for all users                                          |
 
 <!--#include virtual="/biostat/computing/footer.shtml" -->
 
