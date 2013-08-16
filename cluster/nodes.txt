@@ -11,12 +11,12 @@ alt_formats:        txt
 
 # Nodes #
 
-| Hostname   | Processor          | Processor Clock Speed | Cores          | Memory | Slurm Features    |
-|------------|--------------------|-----------------------|----------------|--------|-------------------|
-| cn0[01-18] | Intel Xeon X5660   | 2.80GHz               | 12             | 32GB   | rack-15W-F, intel |
-| cn019      | AMD Opteron 6174   | 3.0GHz                | 48             | 128GB  | rack-15W-F, amd   |
-| cn0[20-25] | Intel Xeon E5-2440 | 2.40GHz               | 12             | 32GB   | rack-15W-F, intel |
-| cn0[26-27] | Intel Xeon E5-2470 | 2.30GHz               | 16             | 32GB   | rack-15W-G, intel |
-| cn0[28-29] | Intel Xeon X5680   | 3.33GHz               | 12             | 144GB  | rack-15W-G, intel |
+| Hostname   | Processor          | Processor Clock Speed | Cores          | Memory | Slurm Features          |
+|------------|--------------------|-----------------------|----------------|--------|-------------------------|
+| cn0[01-18] | Intel Xeon X5660   | 2.80GHz               | 12             | 32GB   | rack-15W-F, intel, R410 |
+| cn019      | AMD Opteron 6174   | 3.0GHz                | 48             | 128GB  | rack-15W-F, amd, R815   |
+| cn0[20-25] | Intel Xeon E5-2440 | 2.40GHz               | 12             | 32GB   | rack-15W-F, intel, R420 |
+| cn0[26-27] | Intel Xeon E5-2470 | 2.30GHz               | 16             | 32GB   | rack-15W-G, intel, R420 |
+| cn0[28-29] | Intel Xeon X5680   | 3.33GHz               | 12             | 144GB  | rack-15W-G, intel, R710 |
 
 <!--#include virtual="/biostat/computing/footer.shtml" -->
