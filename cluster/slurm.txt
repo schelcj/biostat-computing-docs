@@ -52,7 +52,7 @@ the batch script on the first node in the set of allocated nodes.
     #!/bin/sh
 
     #SBATCH --mail-type=ALL
-    #SBATCH --mail-user=@umich.edu
+    #SBATCH --mail-user=uniqname@umich.edu
     #SBATCH --ntasks=5
     #SBATCH --job-name=test
 
@@ -64,6 +64,24 @@ the batch script on the first node in the set of allocated nodes.
     $ cat slurm-25618.out
     # any output to STDOUT would be in this file
 
+#### Array Jobs ####
+Array jobs provide a mechanism for submitting and managing collections of jobs. 
+Job arrays are only supported from batch jobs. To control the size of the array
+the **--array** or **-a** option is passed to sbatch. Please see the
+[slurm array job documentation][] for more details about environment variables, job control,
+and output filenames.
+
+An example batch script would look like
+
+    $ cat sample.txt
+    #!/bin/sh
+
+    #SBATCH --mail-type=ALL
+    #SBATCH --mail-user=uniqname@umich.edu
+    #SBATCH --time=1-0
+    #SBATCH --array=1-100
+
+    srun R CMD BATCH ./script.R
 
 ### [sarray][] ###
 This script allows you to run multiple jobs from a single batch script with the only difference
@@ -234,5 +252,7 @@ make it possible to use the *--dependency* option to srun.
 
 <!--#include virtual="/biostat/computing/footer.shtml" -->
 
-[SLURM (Simple Linux Utility for Resource Management)]: https://computing.llnl.gov/linux/slurm/
+[SLURM (Simple Linux Utility for Resource Management)]: http://slurm.schedmd.com/
 [slurm-devel mailing list post]: http://groups.google.com/group/slurm-devel/msg/b8c9a2f51ce334a1
+[slurm array job documentation]: http://www.schedmd.com/slurmdocs/job_array.html
+[
