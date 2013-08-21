@@ -131,7 +131,7 @@ This batch script requests a whole node be allocated to this job giving your
 code up to 12 cores. This means you can start 12 snow/snowfall nodes within
 your code. The key is the __--nodes=1-1__ option. This tells the scheduler
 that you need exactly one whole node for your job with access to all the cores
-in that node.
+in that node and that you want to use 12 cores in that node.
 
     #!/bin/sh
     
@@ -139,7 +139,8 @@ in that node.
     #SBATCH --mail-user=uniqname@umich.edu
     #SBATCH --time=1-0
     #SBATCH --job-name=test_r_socket_job
-    #SBATCH --node=1-1
+    #SBATCH --nodes=1-1
+    #SBATCH --cpus-per-task=12
     
     srun R CMD BATCH ./script.R
 
