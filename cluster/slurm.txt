@@ -29,11 +29,13 @@ and primary means of launching jobs in the cluster is with [sbatch][].
 
 ## Commands ##
 1. [sbatch][]
+    1. [Array Jobs][]
 1. [sarray][]
 1. [squeue][]
 1. [scancel][]
 1. [srun][]
 1. [salloc][]
+    1. [Interactive Jobs][]
 
 ### [sbatch][] ###
 sbatch submits a batch script to SLURM. The batch script may be givento sbatch through a file name
@@ -250,9 +252,25 @@ While within the interactive allocation you have several environmental varilable
 available to you that describe the allocation. Having things like the JOB_ID available
 make it possible to use the *--dependency* option to srun.
 
+#### Interactive Jobs ####
+For times when you need an interactive shell to debug code, do post processing, run tests, or
+do anything that would be outside the [appropriate][] use of the login nodes you can submit an
+interactive job that will give you a shell on a compute node. To submit an interactive job to
+slurm use the [salloc][] command and the [srun][] command in combination. Here is an example:
+
+      $ salloc --time=1:00:00 srun --pty /bin/bash
+      salloc: Pending job allocation 12000
+      salloc: job 12000 queued and waiting for resources
+      salloc: job 12000 has been allocated resources
+      salloc: Granted job allocation 12000
+      schelcj@cn004:~$ 
+
+This will give you a shell for one hour. Normal time argruments apply. From here you could for
+instance start an R session to debug some of your code.
+
 <!--#include virtual="/biostat/computing/footer.shtml" -->
 
 [SLURM (Simple Linux Utility for Resource Management)]: http://slurm.schedmd.com/
 [slurm-devel mailing list post]: http://groups.google.com/group/slurm-devel/msg/b8c9a2f51ce334a1
 [slurm array job documentation]: http://www.schedmd.com/slurmdocs/job_array.html
-[
+[appropriate]: login_nodes.html#usage
