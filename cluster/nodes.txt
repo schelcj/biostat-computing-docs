@@ -18,5 +18,6 @@ alt_formats:        txt
 | cn0[20-25] | Intel Xeon E5-2440 | 2.40GHz               | 12             | 32GB   | rack-15W-F, intel, R420 |
 | cn0[26-27] | Intel Xeon E5-2470 | 2.30GHz               | 16             | 32GB   | rack-15W-G, intel, R420 |
 | cn0[28-29] | Intel Xeon X5680   | 3.33GHz               | 12             | 144GB  | rack-15W-G, intel, R710 |
+| cn030      | Intel Xeon E5-2470 | 2.30GHz               | 16             | 32GB   | rack-15W-G, intel, R420 |
 
 <!--#include virtual="/biostat/computing/footer.shtml" -->
