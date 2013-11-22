@@ -17,6 +17,7 @@ alt_formats:        txt
 1. [R with snow(fall)][]
 1. [Snow/Snowfall node type SOCK][]
 1. [Snow/Snowfall node type MPI][]
+1. [R Slurm Package][]
 
 ### Basic R Job ###
 For the majority of your R work a simple batch script like below will suffice:
@@ -175,9 +176,28 @@ for your job.
     
     R CMD BATCH ./script.R
 
+### R Slurm Package
+We have a locally developed R package for accessing the Slurm environment during job time.
+The package is called Slurm and the source is in [github][]. This would be primarily useful
+within array jobs, either sarray or sbatch. Instead of digging into the environment with
+Sys.getenv() you could use this pacakge instead. Here are a couple examples
+
+To get the array id from SLURM_ARRAYID when using sarray:
+
+    library('Slurm')
+    arrayid <- slurm.arrayid()
+
+To get the array task id from SLURM_ARRAY_TASK_ID when using array job in sbatch:
+
+    library('Slurm')
+    taskid <- slurm.array_task_id()
+
+More variables are available and documented in the rdoc.
+
 <!--#include virtual="/biostat/computing/footer.shtml" -->
 
 [SOCKETS]: http://en.wikipedia.org/wiki/Unix_domain_socket
 [MPI]: http://en.wikipedia.org/wiki/Message_Passing_Interface
 [PVM]: http://en.wikipedia.org/wiki/Parallel_Virtual_Machine
 [sarray]: http://www.sph.umich.edu/biostat/computing/cluster/slurm.html#sarray
+[github]: https://github.com/schelcj/RSlurm
