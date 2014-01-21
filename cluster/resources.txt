@@ -35,7 +35,7 @@ base header level:  3
 <!--#include virtual="/biostat/computing/footer.shtml" -->
 
 [1]: http://www.sph.umich.edu/biostat/computing/docs/compute_resource_for_biostatistics.pdf
-[2]: https://www.bio.sph.umich.edu/ganglia/
+[2]: http://www.bio.sph.umich.edu/ganglia/
 [3]: https://accounts.itcs.umich.edu/password/
 [4]: https://computing.llnl.gov/linux/slurm/quickstart.html
 [5]: https://computing.llnl.gov/linux/slurm/mpi_guide.html#open_mpi
