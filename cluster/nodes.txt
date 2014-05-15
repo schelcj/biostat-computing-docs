@@ -20,5 +20,6 @@ alt_formats:        txt
 | cn0[28-29] | Intel Xeon X5680   | 3.33GHz               | 12             | 144GB  | rack-15W-G, intel, R710   |
 | cn0[30-31] | Intel Xeon E5-2470 | 2.30GHz               | 16             | 32GB   | rack-15W-G, intel, R420   |
 | cn032      | Intel Xeon X5667   | 3.07GHz               | 8              | 16GB   | rack-15W-E, intel, niveus |
+| cn0[33-34] | Intel Xeon X5660   | 2.80GHz               | 12             | 32GB   | rack-15W-G, intel, R410   |
 
 <!--#include virtual="/biostat/computing/footer.shtml" -->
